@@ -19,3 +19,10 @@ spring:
       password: dani1234
       hikari:
          poolName: pool
+
+logging:
+   level:
+      org:
+         springframework:
+            jdbc:
+               core: TRACE

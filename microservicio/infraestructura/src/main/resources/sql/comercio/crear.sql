@@ -1,0 +1,1 @@
+insert into comercio (nombre) values (:nombre)
