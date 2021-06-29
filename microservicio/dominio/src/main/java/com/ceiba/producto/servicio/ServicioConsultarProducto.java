@@ -39,7 +39,7 @@ public class ServicioConsultarProducto {
 
     private DtoProducto obtenerProducto(Long idProducto) {
         DtoProducto dtoProducto = this.daoProducto.obtenerProducto(idProducto);
-        if(Objects.isNull(dtoProducto)){
+        if (Objects.isNull(dtoProducto)) {
             throw new ExcepcionValorInvalido(EL_PRODUCTO_NO_EXISTE);
         }
         return dtoProducto;

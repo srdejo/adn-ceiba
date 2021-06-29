@@ -4,7 +4,6 @@ import com.ceiba.pedido.modelo.enums.EstadoPedido;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.sql.Time;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 

@@ -4,10 +4,7 @@ import com.ceiba.detalle_pedido.modelo.entidad.DetallePedido;
 import com.ceiba.detalle_pedido.puerto.repositorio.RepositorioDetallePedido;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.horario.puerto.repositorio.RepositorioHorario;
-import com.ceiba.oferta.modelo.entidad.Oferta;
-import com.ceiba.producto.modelo.entidad.Producto;
 import com.ceiba.producto.puerto.repositorio.RepositorioProducto;
-import com.ceiba.producto.servicio.ServicioConsultarProducto;
 
 
 public class ServicioCrearDetallePedido {
@@ -40,7 +37,7 @@ public class ServicioCrearDetallePedido {
     }
 
     private void validarExistenciaProducto(Long idProducto) {
-        if(!this.repositorioProducto.existe(idProducto)){
+        if (!this.repositorioProducto.existe(idProducto)) {
             throw new ExcepcionValorInvalido(EL_PRODUCTO_NO_ES_VALIDO);
         }
     }

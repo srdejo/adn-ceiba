@@ -1,9 +1,9 @@
 package com.ceiba.horario.comando.manejador;
 
-import com.ceiba.horario.modelo.entidad.Horario;
-import com.ceiba.horario.servicio.ServicioActualizarHorario;
 import com.ceiba.horario.comando.ComandoHorario;
 import com.ceiba.horario.comando.fabrica.FabricaHorario;
+import com.ceiba.horario.modelo.entidad.Horario;
+import com.ceiba.horario.servicio.ServicioActualizarHorario;
 import com.ceiba.manejador.ManejadorComando;
 import org.springframework.stereotype.Component;
 

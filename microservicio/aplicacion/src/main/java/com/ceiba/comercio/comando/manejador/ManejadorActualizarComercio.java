@@ -1,9 +1,9 @@
 package com.ceiba.comercio.comando.manejador;
 
-import com.ceiba.comercio.modelo.entidad.Comercio;
-import com.ceiba.comercio.servicio.ServicioActualizarComercio;
 import com.ceiba.comercio.comando.ComandoComercio;
 import com.ceiba.comercio.comando.fabrica.FabricaComercio;
+import com.ceiba.comercio.modelo.entidad.Comercio;
+import com.ceiba.comercio.servicio.ServicioActualizarComercio;
 import com.ceiba.manejador.ManejadorComando;
 import org.springframework.stereotype.Component;
 

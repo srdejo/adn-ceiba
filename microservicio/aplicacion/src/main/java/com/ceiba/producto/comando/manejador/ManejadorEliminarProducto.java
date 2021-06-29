@@ -1,7 +1,7 @@
 package com.ceiba.producto.comando.manejador;
 
-import com.ceiba.producto.servicio.ServicioEliminarProducto;
 import com.ceiba.manejador.ManejadorComando;
+import com.ceiba.producto.servicio.ServicioEliminarProducto;
 import org.springframework.stereotype.Component;
 
 

@@ -19,7 +19,7 @@ public class ComandoControladorComercio {
 
     @Autowired
     public ComandoControladorComercio(ManejadorCrearComercio manejadorCrearComercio,
-                                     ManejadorActualizarComercio manejadorActualizarComercio) {
+                                      ManejadorActualizarComercio manejadorActualizarComercio) {
         this.manejadorCrearComercio = manejadorCrearComercio;
         this.manejadorActualizarComercio = manejadorActualizarComercio;
     }

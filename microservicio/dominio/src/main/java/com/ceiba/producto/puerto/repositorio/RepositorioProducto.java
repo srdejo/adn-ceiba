@@ -5,6 +5,7 @@ import com.ceiba.producto.modelo.entidad.Producto;
 public interface RepositorioProducto {
     /**
      * Permite crear un usuario
+     *
      * @param producto
      * @return el id generado
      */
@@ -12,18 +13,21 @@ public interface RepositorioProducto {
 
     /**
      * Permite actualizar un producto
+     *
      * @param producto
      */
     void actualizar(Producto producto);
 
     /**
      * Permite eliminar un Cliente
+     *
      * @param id
      */
     void eliminar(Long id);
 
     /**
      * Permite consultar la existencia de un producto
+     *
      * @param id
      * @return
      */

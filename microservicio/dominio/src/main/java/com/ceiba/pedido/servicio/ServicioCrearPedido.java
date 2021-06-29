@@ -1,10 +1,7 @@
 package com.ceiba.pedido.servicio;
 
 import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
-import com.ceiba.detalle_pedido.puerto.repositorio.RepositorioDetallePedido;
-import com.ceiba.detalle_pedido.servicio.ServicioCrearDetallePedido;
 import com.ceiba.dominio.excepcion.ExcepcionSinDatos;
-import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
 import com.ceiba.pedido.modelo.entidad.Pedido;
 import com.ceiba.pedido.puerto.dao.DaoPedido;
 import com.ceiba.pedido.puerto.repositorio.RepositorioPedido;
@@ -39,7 +36,7 @@ public class ServicioCrearPedido {
         }
     }
 
-    private void validarClienteExiste(Long clienteId){
+    private void validarClienteExiste(Long clienteId) {
         if (!this.repositorioCliente.existe(clienteId)) {
             throw new ExcepcionSinDatos(EL_CLIENTE_NO_ENCONTRADO);
         }

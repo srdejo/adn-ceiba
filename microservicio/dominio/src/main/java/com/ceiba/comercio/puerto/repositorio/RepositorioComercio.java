@@ -5,6 +5,7 @@ import com.ceiba.comercio.modelo.entidad.Comercio;
 public interface RepositorioComercio {
     /**
      * Permite crear un comercio
+     *
      * @param comercio
      * @return el id generado
      */
@@ -12,12 +13,14 @@ public interface RepositorioComercio {
 
     /**
      * Permite actualizar un comercio
+     *
      * @param comercio
      */
     void actualizar(Comercio comercio);
 
     /**
      * Permite validar si existe un comercio con un nombre
+     *
      * @param celular
      * @return si existe o no
      */

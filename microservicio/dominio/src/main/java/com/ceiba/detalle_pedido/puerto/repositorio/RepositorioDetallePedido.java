@@ -5,6 +5,7 @@ import com.ceiba.detalle_pedido.modelo.entidad.DetallePedido;
 public interface RepositorioDetallePedido {
     /**
      * Permite crear un detalle pedido
+     *
      * @param detallePedido
      * @return el id generado
      */
@@ -12,12 +13,14 @@ public interface RepositorioDetallePedido {
 
     /**
      * Permite actualizar un detalle pedido
+     *
      * @param detallePedido
      */
     void actualizar(DetallePedido detallePedido);
 
     /**
      * Permite eliminar un detalle pedido
+     *
      * @param id
      */
     void eliminar(Long id);

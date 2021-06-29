@@ -1,7 +1,7 @@
 package com.ceiba.producto.comando.fabrica;
 
-import com.ceiba.producto.modelo.entidad.Producto;
 import com.ceiba.producto.comando.ComandoProducto;
+import com.ceiba.producto.modelo.entidad.Producto;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;

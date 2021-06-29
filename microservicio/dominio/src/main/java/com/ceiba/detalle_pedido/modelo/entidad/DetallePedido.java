@@ -24,7 +24,7 @@ public class DetallePedido {
     private String observacion;
     private LocalDateTime fechaCreacion;
 
-    public DetallePedido(Long id,Long idPedido, Long idProducto, Integer cantidad, Double valorUnidad, String observacion, LocalDateTime fechaCreacion) {
+    public DetallePedido(Long id, Long idPedido, Long idProducto, Integer cantidad, Double valorUnidad, String observacion, LocalDateTime fechaCreacion) {
 
         validarObligatorio(idProducto, SE_DEBE_SELECCIONAR_UN_PRODUCTO);
         validarObligatorio(cantidad, SE_DEBE_INGRESAR_CANTIDAD);

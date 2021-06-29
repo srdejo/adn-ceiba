@@ -5,10 +5,6 @@ import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
 import com.ceiba.cliente.servicio.testdatabuilder.ClienteTestDataBuilder;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
-import com.ceiba.usuario.modelo.entidad.Usuario;
-import com.ceiba.usuario.puerto.repositorio.RepositorioUsuario;
-import com.ceiba.usuario.servicio.ServicioActualizarUsuario;
-import com.ceiba.usuario.servicio.testdatabuilder.UsuarioTestDataBuilder;
 import org.junit.Test;
 import org.mockito.Mockito;
 

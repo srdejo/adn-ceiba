@@ -1,7 +1,7 @@
 package com.ceiba.oferta.comando.fabrica;
 
-import com.ceiba.oferta.modelo.entidad.Oferta;
 import com.ceiba.oferta.comando.ComandoOferta;
+import com.ceiba.oferta.modelo.entidad.Oferta;
 import org.springframework.stereotype.Component;
 
 @Component

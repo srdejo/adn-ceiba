@@ -7,7 +7,6 @@ import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -26,7 +25,7 @@ public class MapeoOferta implements RowMapper<DtoOferta>, MapperResult {
         LocalDateTime fecha = extraerLocalDateTime(resultSet, "fecha_creacion");
         String nombre = resultSet.getString("nombre");
         String descripcion = resultSet.getString("descripcion");
-        Double valorProducto = resultSet.getDouble( "valor");
+        Double valorProducto = resultSet.getDouble("valor");
         Long idComercio = resultSet.getLong("id_comercio");
         LocalDateTime fechaCreacionProducto = extraerLocalDateTime(resultSet, "fecha_creacion_producto");
 

@@ -1,9 +1,8 @@
 package com.ceiba.producto.adaptador.repositorio;
 
-import com.ceiba.producto.modelo.entidad.Producto;
-import com.ceiba.producto.puerto.repositorio.RepositorioProducto;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
+import com.ceiba.producto.modelo.entidad.Producto;
 import com.ceiba.producto.puerto.repositorio.RepositorioProducto;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
@@ -47,7 +46,7 @@ public class RepositorioProductoMysql implements RepositorioProducto {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("id", id);
 
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, paramSource, Boolean.class);
     }
 
     @Override

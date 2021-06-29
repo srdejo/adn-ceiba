@@ -1,11 +1,11 @@
 package com.ceiba.producto.comando.manejador;
 
 import com.ceiba.ComandoRespuesta;
-import com.ceiba.producto.modelo.entidad.Producto;
-import com.ceiba.producto.servicio.ServicioCrearProducto;
 import com.ceiba.manejador.ManejadorComandoRespuesta;
 import com.ceiba.producto.comando.ComandoProducto;
 import com.ceiba.producto.comando.fabrica.FabricaProducto;
+import com.ceiba.producto.modelo.entidad.Producto;
+import com.ceiba.producto.servicio.ServicioCrearProducto;
 import org.springframework.stereotype.Component;
 
 @Component

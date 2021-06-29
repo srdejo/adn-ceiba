@@ -9,7 +9,7 @@ import com.ceiba.producto.puerto.repositorio.RepositorioProducto;
 public class ServicioActualizarDetallePedido {
 
     private static final String EL_HORARIO_NO_ES_VALIDO = "El comercio termino su horario de atencion";
-    private static final String EL_PRODUCTO_NO_ES_VALIDO = "El producto añadadido no existe";
+    private static final String EL_PRODUCTO_NO_EXISTE = "El producto añadadido no existe";
 
     private final RepositorioDetallePedido repositorioDetallePedido;
     private final RepositorioProducto repositorioProducto;
@@ -36,8 +36,8 @@ public class ServicioActualizarDetallePedido {
     }
 
     private void validarExistenciaProducto(Long idProducto) {
-        if(!this.repositorioProducto.existe(idProducto)){
-            throw new ExcepcionValorInvalido(EL_PRODUCTO_NO_ES_VALIDO);
+        if (!this.repositorioProducto.existe(idProducto)) {
+            throw new ExcepcionValorInvalido(EL_PRODUCTO_NO_EXISTE);
         }
     }
 

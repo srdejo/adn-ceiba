@@ -1,7 +1,6 @@
 package com.ceiba.detalle_pedido.servicio.testdatabuilder;
 
 import com.ceiba.detalle_pedido.modelo.entidad.DetallePedido;
-import com.ceiba.usuario.modelo.entidad.Usuario;
 
 import java.time.LocalDateTime;
 import java.util.Random;

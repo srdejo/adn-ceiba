@@ -5,6 +5,7 @@ import com.ceiba.cliente.modelo.entidad.Cliente;
 public interface RepositorioCliente {
     /**
      * Permite crear un usuario
+     *
      * @param cliente
      * @return el id generado
      */
@@ -12,18 +13,21 @@ public interface RepositorioCliente {
 
     /**
      * Permite actualizar un cliente
+     *
      * @param cliente
      */
     void actualizar(Cliente cliente);
 
     /**
      * Permite eliminar un Cliente
+     *
      * @param id
      */
     void eliminar(Long id);
 
     /**
      * Permite validar si existe un Cliente con un id
+     *
      * @param celular
      * @return si existe o no
      */
@@ -31,6 +35,7 @@ public interface RepositorioCliente {
 
     /**
      * Permite validar si existe un ususario
+     *
      * @param id
      * @return
      */

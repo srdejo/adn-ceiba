@@ -1,7 +1,5 @@
 package com.ceiba.detalle_pedido.adaptador.dao;
 
-import com.ceiba.cliente.modelo.dto.DtoCliente;
-import com.ceiba.cliente.puerto.dao.DaoCliente;
 import com.ceiba.detalle_pedido.modelo.dto.DtoDetallePedido;
 import com.ceiba.detalle_pedido.puerto.dao.DaoDetallePedido;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
@@ -27,6 +25,6 @@ public class DaoDetallePedidoMysql implements DaoDetallePedido {
     public List<DtoDetallePedido> listar(Long idPedido) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("idPedido", idPedido);
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar, paramSource,  new MapeoDetallePedido());
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar, paramSource, new MapeoDetallePedido());
     }
 }

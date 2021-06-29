@@ -3,8 +3,6 @@ package com.ceiba.horario.modelo.entidad;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import lombok.Getter;
 
-import java.sql.Time;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
@@ -18,10 +16,9 @@ public class Horario {
     private static final String HORA_INICIAL_MENOR = "La hora inicial debe ser menor a la hora final";
 
     private Long id;
-
     private LocalTime horaInicial;
     private LocalTime horaFinal;
-    private Long idComercio ;
+    private Long idComercio;
     private Integer diaSemana;
     private LocalDateTime fechaCreacion;
 
@@ -31,7 +28,7 @@ public class Horario {
         validarObligatorio(horaFinal, SE_DEBE_INGRESAR_HORA_FINAL);
         validarObligatorio(idComercio, SE_DEBE_SELECCIONAR_COMERCIO);
 
-        if(horaInicial.isAfter(horaFinal)){
+        if (horaInicial.isAfter(horaFinal)) {
             throw new ExcepcionValorInvalido(HORA_INICIAL_MENOR);
         }
         this.id = id;
