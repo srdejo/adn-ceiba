@@ -17,8 +17,8 @@ create table cliente (
 );
 
 insert into cliente values
-(null, 3138523670, 'Dani', 'Cra 7 # 18 09', now()),
-(null, 3138523671, 'Dani 2', 'Cra 7 # 18 09', now());
+(1, 3138523670, 'Dani', 'Cra 7 # 18 09', now()),
+(2, 3138523671, 'Dani 2', 'Cra 7 # 18 09', now());
 
 create table comercio (
  id int(11) not null auto_increment,
@@ -27,8 +27,8 @@ create table comercio (
 );
 
 insert into comercio values
-(null, 'JJ'),
-(null, 'Jamhbrientos');
+(1, 'JJ'),
+(2, 'Jamhbrientos');
 
 create table horario_atencion (
  id int(11) not null auto_increment,
@@ -42,8 +42,8 @@ create table horario_atencion (
 );
 
 insert into horario_atencion values
-(null, '03:00:00', '04:00:00', 7, now(), 1),
-(null, '05:00:00', '10:00:00', 7, now(), 2);
+(1, '00:00:00', '12:00:00', 7, now(), 1),
+(2, '12:00:00', '23:59:59', 7, now(), 2);
 
 create table producto (
  id int(11) not null auto_increment,
@@ -58,8 +58,8 @@ create table producto (
 );
 
 insert into producto values
-(null, 'Perro HD', 'Perro de la casa', 7000.00, null, now(), 1),
-(null, 'Picada', 'Salchipapas de la casa', 10000.00, null, now(), 2);
+(1, 'Perro HD', 'Perro de la casa', 7000.00, null, now(), 1),
+(2, 'Picada', 'Salchipapas de la casa', 10000.00, null, now(), 2);
 
 create table oferta (
  id int(11) not null auto_increment,
@@ -89,7 +89,7 @@ create table pedido (
 );
 
 insert into pedido values
-(null, 1, 'PENDIENTE', CURTIME(), now() , 2000.00 );
+(1, 1, 'PENDIENTE', CURTIME(), now() , 2000.00 );
 
 create table detalle_pedido (
  id int(11) not null auto_increment,
@@ -103,3 +103,7 @@ create table detalle_pedido (
  foreign key (id_pedido) references pedido(id),
  foreign key (id_producto) references producto(id)
 );
+
+insert into detalle_pedido values
+(null, 1, 1, 5000, 5, 'Sin Cebolla', now()),
+(null, 1, 2, 15000, 1, '', now());

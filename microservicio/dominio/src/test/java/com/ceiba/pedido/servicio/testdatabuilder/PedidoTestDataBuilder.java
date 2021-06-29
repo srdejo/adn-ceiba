@@ -9,28 +9,32 @@ import java.time.LocalTime;
 public class PedidoTestDataBuilder {
 
     private Long id;
-    private Long clienteId;
+    private Long idCliente;
     private LocalTime hora;
-    private EstadoPedido estadoPedido;
+    private String estadoPedido;
+    private Double valorDomicilio;
+    private LocalDateTime fechaCreacion;
 
 
     public PedidoTestDataBuilder() {
-        clienteId = 1L;
+        idCliente = 1L;
         hora = LocalTime.now();
-        estadoPedido = EstadoPedido.PENDIENTE;
+        estadoPedido = EstadoPedido.PENDIENTE.toString();
+        valorDomicilio = 2000.00;
+        fechaCreacion = LocalDateTime.now();
     }
 
     public PedidoTestDataBuilder conEstado(EstadoPedido estadoPedido) {
-        this.estadoPedido = estadoPedido;
+        this.estadoPedido = estadoPedido.toString();
         return this;
     }
 
     public PedidoTestDataBuilder conClienteId(Long id) {
-        this.clienteId = id;
+        this.idCliente = id;
         return this;
     }
 
     public Pedido build() {
-        return new Pedido(id, clienteId, hora, estadoPedido, LocalDateTime.now());
+        return new Pedido(id, idCliente, hora, estadoPedido, valorDomicilio, fechaCreacion);
     }
 }

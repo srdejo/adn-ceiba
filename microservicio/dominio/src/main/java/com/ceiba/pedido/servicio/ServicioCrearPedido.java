@@ -27,12 +27,15 @@ public class ServicioCrearPedido {
     public Long ejecutar(Pedido pedido) {
         validarClienteExiste(pedido.getIdCliente());
         calcularOfertaDomicilioGratis(pedido);
+        pedido.asignarValorDomicilio(calcularOfertaDomicilioGratis(pedido));
         return this.repositorioPedido.crear(pedido);
     }
 
-    private void calcularOfertaDomicilioGratis(Pedido pedido) {
+    private Double calcularOfertaDomicilioGratis(Pedido pedido) {
         if (this.daoPedido.contarPedidosEntregados(pedido.getIdCliente()) % CANTIDAD_PEDIDOS_DOMICILIO_GRATIS != 0) {
-            pedido.setValorDomicilio(VALOR_DOMICILIO);
+            return VALOR_DOMICILIO;
+        }else {
+            return 0.0;
         }
     }
 

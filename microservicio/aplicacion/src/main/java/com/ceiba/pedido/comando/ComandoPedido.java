@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Getter
@@ -15,8 +16,9 @@ import java.time.LocalTime;
 public class ComandoPedido {
 
     private Long id;
-    private Long clienteId;
+    private Long idCliente;
     private LocalTime hora;
     private EstadoPedido estadoPedido;
+    private Double valorDomicilio;
 
 }

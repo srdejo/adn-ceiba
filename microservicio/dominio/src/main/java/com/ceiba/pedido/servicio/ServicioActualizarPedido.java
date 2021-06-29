@@ -26,13 +26,15 @@ public class ServicioActualizarPedido {
     public void ejecutar(Pedido pedido) {
         validarClienteExiste(pedido.getIdCliente());
         calcularOfertaDomicilioGratis(pedido);
+        pedido.asignarValorDomicilio(calcularOfertaDomicilioGratis(pedido));
         this.repositorioPedido.actualizar(pedido);
     }
 
-    private void calcularOfertaDomicilioGratis(Pedido pedido) {
+    private Double calcularOfertaDomicilioGratis(Pedido pedido) {
         if (this.daoPedido.contarPedidosEntregados(pedido.getIdCliente()) % CANTIDAD_PEDIDOS_DOMICILIO_GRATIS != 0) {
-            pedido.setValorDomicilio(VALOR_DOMICILIO);
+            return VALOR_DOMICILIO;
         }
+        return 0.0;
     }
 
     private void validarClienteExiste(Long clienteId) {

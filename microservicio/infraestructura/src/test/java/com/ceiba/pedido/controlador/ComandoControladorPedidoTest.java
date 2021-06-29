@@ -2,18 +2,14 @@ package com.ceiba.pedido.controlador;
 
 import com.ceiba.ApplicationMock;
 import com.ceiba.pedido.comando.ComandoPedido;
-import com.ceiba.pedido.comando.manejador.ManejadorActualizarPedido;
 import com.ceiba.pedido.modelo.enums.EstadoPedido;
-import com.ceiba.pedido.servicio.ServicioActualizarPedido;
-import com.ceiba.pedido.servicio.ServicioCrearPedido;
 import com.ceiba.pedido.testdatabuilder.ComandoPedidoTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
+import org.junit.jupiter.api.Order;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -33,18 +29,11 @@ public class ComandoControladorPedidoTest {
     @Autowired
     private MockMvc mocMvc;
 
-    @MockBean
-    private ServicioCrearPedido servicioCrearPedido;
-
-
-    @MockBean
-    private ServicioActualizarPedido servicioActualizarPedido;
-
     @Test
+    @Order(1)
     public void crear() throws Exception {
         // arrange
         ComandoPedido pedido = new ComandoPedidoTestDataBuilder().build();
-        Mockito.when(servicioCrearPedido.ejecutar(Mockito.any())).thenReturn(Mockito.anyLong());
 
         // act - assert
         mocMvc.perform(post("/pedidos")
@@ -54,12 +43,11 @@ public class ComandoControladorPedidoTest {
     }
 
     @Test
+    @Order(2)
     public void actualizar() throws Exception {
         // arrange
-        Long id = 2L;
+        Long id = 1L;
         ComandoPedido pedido = new ComandoPedidoTestDataBuilder().conEstado(EstadoPedido.DESPACHADO).build();
-
-        Mockito.doNothing().when(servicioActualizarPedido).ejecutar(Mockito.any());
         // act - assert
         mocMvc.perform(put("/pedidos/{id}", id)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -68,6 +56,7 @@ public class ComandoControladorPedidoTest {
     }
 
     @Test
+    @Order(3)
     public void eliminar() throws Exception {
         // arrange
         Long id = 2L;

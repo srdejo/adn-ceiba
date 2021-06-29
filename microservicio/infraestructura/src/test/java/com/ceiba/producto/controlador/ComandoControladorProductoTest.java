@@ -6,6 +6,7 @@ import com.ceiba.producto.comando.ComandoProducto;
 import com.ceiba.producto.testdatabuilder.ComandoProductoTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
+import org.junit.jupiter.api.Order;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -30,6 +31,7 @@ public class ComandoControladorProductoTest {
     private MockMvc mocMvc;
 
     @Test
+    @Order(1)
     public void crear() throws Exception{
         // arrange
         ComandoProducto producto = new ComandoProductoTestDataBuilder().build();
@@ -43,6 +45,7 @@ public class ComandoControladorProductoTest {
     }
 
     @Test
+    @Order(2)
     public void actualizar() throws Exception{
         // arrange
         Long id = 2L;
@@ -56,9 +59,10 @@ public class ComandoControladorProductoTest {
     }
 
     @Test
+    @Order(3)
     public void eliminar() throws Exception {
         // arrange
-        Long id = 2L;
+        Long id = 3L;
 
         // act - assert
         mocMvc.perform(delete("/productos/{id}",id)

@@ -5,6 +5,7 @@ import com.ceiba.cliente.servicio.testdatabuilder.ComandoClienteTestDataBuilder;
 import com.ceiba.cliente.comando.ComandoCliente;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
+import org.junit.jupiter.api.Order;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -28,6 +29,7 @@ public class ComandoControladorClienteTest {
     private MockMvc mocMvc;
 
     @Test
+    @Order(1)
     public void crear() throws Exception{
         // arrange
         ComandoCliente cliente = new ComandoClienteTestDataBuilder().build();
@@ -40,6 +42,7 @@ public class ComandoControladorClienteTest {
     }
 
     @Test
+    @Order(2)
     public void actualizar() throws Exception{
         // arrange
         Long id = 2L;
@@ -53,6 +56,7 @@ public class ComandoControladorClienteTest {
     }
 
     @Test
+    @Order(3)
     public void eliminar() throws Exception {
         // arrange
         Long id = 2L;

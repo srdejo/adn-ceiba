@@ -15,19 +15,23 @@ public class Pedido {
     private Long id;
     private Long idCliente;
     private LocalTime hora;
-    private EstadoPedido estadoPedido;
+    private String estadoPedido;
     private Double valorDomicilio;
     private LocalDateTime fechaCreacion;
 
-    public Pedido(Long id, Long idCliente, LocalTime hora, EstadoPedido estadoPedido, LocalDateTime fechaCreacion) {
+    public Pedido(Long id, Long idCliente, LocalTime hora, String estadoPedido, Double valorDomicilio, LocalDateTime fechaCreacion) {
         validarObligatorio(idCliente, SE_DEBE_SELECCIONAR_CLIENTE);
         this.id = id;
         this.idCliente = idCliente;
         this.fechaCreacion = fechaCreacion;
         this.valorDomicilio = 0.0;
-    }
-
-    public void setValorDomicilio(Double valorDomicilio) {
+        this.hora = hora;
+        this.estadoPedido = estadoPedido;
         this.valorDomicilio = valorDomicilio;
     }
+
+    public void asignarValorDomicilio(Double valorDomicilio){
+        this.valorDomicilio = valorDomicilio;
+    }
+
 }

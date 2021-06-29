@@ -12,9 +12,10 @@ public class FabricaPedido {
     public Pedido crear(ComandoPedido comandoPedido) {
         return new Pedido(
                 comandoPedido.getId(),
-                comandoPedido.getClienteId(),
+                comandoPedido.getIdCliente(),
                 comandoPedido.getHora(),
-                comandoPedido.getEstadoPedido(),
+                comandoPedido.getEstadoPedido().toString(),
+                0.0,
                 LocalDateTime.now()
         );
     }

@@ -5,6 +5,7 @@ import com.ceiba.comercio.comando.ComandoComercio;
 import com.ceiba.comercio.servicio.testdatabuilder.ComandoComercioTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
+import org.junit.jupiter.api.Order;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -29,6 +30,7 @@ public class ComandoControladorComercioTest {
     private MockMvc mocMvc;
 
     @Test
+    @Order(1)
     public void crear() throws Exception{
         // arrange
         ComandoComercio comercio = new ComandoComercioTestDataBuilder().build();
@@ -42,6 +44,7 @@ public class ComandoControladorComercioTest {
     }
 
     @Test
+    @Order(2)
     public void actualizar() throws Exception{
         // arrange
         Long id = 2L;

@@ -52,8 +52,7 @@ public class RepositorioHorarioMysql implements RepositorioHorario {
         paramSource.addValue("dia_semana", fechaHoraActual.getDayOfWeek().getValue());
         paramSource.addValue("id_producto", idProducto);
 
-        Integer horariosDisponibles = this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlHorarioDisponible, paramSource, Integer.class);
-        return horariosDisponibles > 0;
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlHorarioDisponible, paramSource, Boolean.class);
     }
 
     @Override

@@ -21,6 +21,7 @@ import com.ceiba.producto.puerto.repositorio.RepositorioProducto;
 import com.ceiba.producto.servicio.testdatabuilder.ProductoTestDataBuilder;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import org.mockito.Mockito;
 
 import java.util.Random;
@@ -69,7 +70,7 @@ public class ServicioCrearDetallePedidoTest {
     }
 
     @Test
-    public void validarExistenciaProducto() {
+    public void validarNoExistenciaProducto() {
         // arrange
         Random random = new Random();
         RepositorioProducto repositorioProducto = Mockito.mock(RepositorioProducto.class);
@@ -81,5 +82,21 @@ public class ServicioCrearDetallePedidoTest {
         // act - assert
         BasePrueba.assertThrows(() -> servicioActualizarDetallePedido.ejecutar(detallePedido), ExcepcionValorInvalido.class
                 , "El producto añadadido no existe");
+    }
+
+    @Test
+    public void validarExistenciaProducto() {
+        // arrange
+        Random random = new Random();
+        RepositorioProducto repositorioProducto = Mockito.mock(RepositorioProducto.class);
+        RepositorioHorario repositorioHorario = Mockito.mock(RepositorioHorario.class);
+        RepositorioDetallePedido repositorioDetallePedido = Mockito.mock(RepositorioDetallePedido.class);
+        ServicioActualizarDetallePedido servicioActualizarDetallePedido = new ServicioActualizarDetallePedido(repositorioDetallePedido, repositorioProducto, repositorioHorario);
+
+        Mockito.when(repositorioProducto.existe(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioHorario.estaAbierto(Mockito.anyLong())).thenReturn(true);
+        DetallePedido detallePedido = new DetallePedidoTestDataBuilder().conIdProducto(random.nextLong()).conIdPedido(random.nextLong()).build();
+        // act - assert
+        Assertions.assertDoesNotThrow(() -> servicioActualizarDetallePedido.ejecutar(detallePedido));
     }
 }

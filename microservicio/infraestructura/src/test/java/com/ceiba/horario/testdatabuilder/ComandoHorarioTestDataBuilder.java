@@ -18,9 +18,9 @@ public class ComandoHorarioTestDataBuilder {
     public ComandoHorarioTestDataBuilder() {
         Random random = new Random();
         id = random.nextLong();
-        horaInicial = LocalTime.now();
-        idComercio = 1L;
-        diaSemana = 1;
+        horaInicial = LocalTime.now().minusMinutes(5);
+        idComercio = Long.valueOf(1);
+        diaSemana = LocalDateTime.now().getDayOfWeek().getValue();
         fechaCreacion = LocalDateTime.now();
     }
 

@@ -24,11 +24,6 @@ public class DaoHorarioMysql implements DaoHorario {
 
     @Override
     public List<DtoHorario> listar() {
-        LocalDateTime fechaHoraActual = LocalDateTime.now();
-        MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("hora_actual", fechaHoraActual.toLocalTime());
-        paramSource.addValue("dia_semana", fechaHoraActual.getDayOfWeek().getValue());
-
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar, paramSource, new MapeoHorario());
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar, new MapeoHorario());
     }
 }
