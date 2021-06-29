@@ -57,6 +57,7 @@ pipeline {
            steps {
             echo "------------>Build<------------"
             //Construir sin tarea test que se ejecutó previamente
+            sh './gradlew --b ./microservicio/build.gradle clean'
             sh './gradlew --b ./microservicio/build.gradle build -x test'
            }
         }
@@ -69,11 +70,10 @@ pipeline {
         }
         success {
           echo 'This will run only if successful'
-          junit './microservicio/build/test-results/test/*.xml' //RUTA DE TUS ARCHIVOS .XML
+          junit './microservicio/**/build/test-results/test/*.xml' //RUTA DE TUS ARCHIVOS .XML
         }
         failure {
           echo 'This will run only if failed'
-          mail (to: 'daniel.jimenez@ceiba.com.co',subject: "Failed Pipeline:${currentBuild.fullDisplayName}",body: "Something is wrong with ${env.BUILD_URL}")
         }
         unstable {
           echo 'This will run only if the run was marked as unstable'
