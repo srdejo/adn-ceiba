@@ -4,6 +4,7 @@ import com.ceiba.detalle_pedido.consulta.ManejadorListarDetallePedidos;
 import com.ceiba.detalle_pedido.modelo.dto.DtoDetallePedido;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.auth.In;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +23,7 @@ public class ConsultaControladorDetallePedido {
         this.manejadorListarDetallePedidos = manejadorListarDetallePedidos;
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/{idPedido}")
     @ApiOperation("Listar detalle pedido")
     public List<DtoDetallePedido> listar(@PathVariable Long idPedido) {
         return this.manejadorListarDetallePedidos.ejecutar(idPedido);

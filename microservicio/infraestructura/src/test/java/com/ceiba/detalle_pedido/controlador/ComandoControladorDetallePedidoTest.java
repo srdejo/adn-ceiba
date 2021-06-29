@@ -46,12 +46,10 @@ public class ComandoControladorDetallePedidoTest {
     @Test
     public void crear() throws Exception {
         // arrange
-
         RepositorioHorario repositorioHorario = Mockito.mock(RepositorioHorario.class);
         ComandoDetallePedido detallePedido = new ComandoDetallePedidoTestDataBuilder()
                 .conIdPedido(1L)
                 .conIdProducto(10L).build();
-
 
         Mockito.when(servicioCrearDetallePedido.ejecutar(Mockito.any())).thenReturn(Mockito.anyLong());
         // act - assert

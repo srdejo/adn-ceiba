@@ -14,7 +14,7 @@ public class DaoDetallePedidoMysql implements DaoDetallePedido {
 
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
-    @SqlStatement(namespace = "cliente", value = "listar")
+    @SqlStatement(namespace = "detalle_pedido", value = "listar")
     private static String sqlListar;
 
     public DaoDetallePedidoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
