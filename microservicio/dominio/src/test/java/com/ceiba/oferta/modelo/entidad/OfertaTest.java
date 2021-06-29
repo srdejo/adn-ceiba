@@ -2,6 +2,7 @@ package com.ceiba.oferta.modelo.entidad;
 
 import com.ceiba.BasePrueba;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
+import com.ceiba.oferta.servicio.testdatabuilder.OfertaTestDataBuilder;
 import org.junit.Test;
 
 import java.time.LocalDate;
@@ -13,11 +14,8 @@ public class OfertaTest {
     @Test
     public void validarOfertaHoraFinalMenorTest() {
         // arrange
-        Random random = new Random();
-        LocalTime horaInicial = LocalTime.now();
-        LocalTime horaFinal = horaInicial.minusHours(1);
         // act - assert
-        BasePrueba.assertThrows(() -> new Oferta(random.nextLong(), horaInicial, horaFinal, LocalDate.now(), random.nextDouble(), random.nextLong()),
+        BasePrueba.assertThrows(() -> new OfertaTestDataBuilder().conHoraFinalMenor().build(),
                 ExcepcionValorInvalido.class, "La hora inicial debe ser menor a la hora final");
     }
 }

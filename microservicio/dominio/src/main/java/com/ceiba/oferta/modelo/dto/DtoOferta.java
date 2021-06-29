@@ -18,7 +18,6 @@ public class DtoOferta {
     private LocalTime horaFinal;
     private LocalDate dia;
     private Double valor;
-    private Long idProducto;
     private LocalDateTime fechaCreacion;
     private Producto producto;
 

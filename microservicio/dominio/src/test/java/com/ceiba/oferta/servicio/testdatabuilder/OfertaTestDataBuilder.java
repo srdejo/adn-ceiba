@@ -36,6 +36,11 @@ public class OfertaTestDataBuilder {
         return this;
     }
 
+    public OfertaTestDataBuilder conHoraFinalMenor() {
+        this.horaFinal = this.horaInicial.minusHours(1);
+        return this;
+    }
+
     public Oferta build() {
         return new Oferta(id, horaInicial, horaFinal, dia, valor, idProducto);
     }

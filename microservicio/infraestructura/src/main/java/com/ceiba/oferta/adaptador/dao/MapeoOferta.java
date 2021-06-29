@@ -29,7 +29,7 @@ public class MapeoOferta implements RowMapper<DtoOferta>, MapperResult {
         Long idComercio = resultSet.getLong("id_comercio");
         LocalDateTime fechaCreacionProducto = extraerLocalDateTime(resultSet, "fecha_creacion_producto");
 
-        return new DtoOferta(id, horaInicial, horaFinal, dia, valor, idProducto, fecha,
+        return new DtoOferta(id, horaInicial, horaFinal, dia, valor, fecha,
                 new Producto(idProducto, nombre, descripcion, valorProducto, idComercio, fechaCreacionProducto));
     }
 
