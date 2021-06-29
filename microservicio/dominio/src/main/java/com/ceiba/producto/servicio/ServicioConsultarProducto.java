@@ -15,12 +15,10 @@ public class ServicioConsultarProducto {
 
     private final DaoProducto daoProducto;
     private final DaoOferta daoOferta;
-    private final DaoHorario daoHorario;
 
-    public ServicioConsultarProducto(DaoProducto daoProducto, DaoHorario daoHorario, DaoOferta daoOferta) {
+    public ServicioConsultarProducto(DaoProducto daoProducto, DaoOferta daoOferta) {
         this.daoProducto = daoProducto;
         this.daoOferta = daoOferta;
-        this.daoHorario = daoHorario;
     }
 
     public Producto ejecutar(Long id) {

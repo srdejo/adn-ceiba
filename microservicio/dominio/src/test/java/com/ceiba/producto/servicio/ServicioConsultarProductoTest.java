@@ -2,7 +2,6 @@ package com.ceiba.producto.servicio;
 
 import com.ceiba.BasePrueba;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
-import com.ceiba.horario.puerto.dao.DaoHorario;
 import com.ceiba.oferta.modelo.entidad.Oferta;
 import com.ceiba.oferta.puerto.dao.DaoOferta;
 import com.ceiba.oferta.servicio.testdatabuilder.OfertaTestDataBuilder;
@@ -25,8 +24,7 @@ public class ServicioConsultarProductoTest {
 
         DaoProducto daoProducto = Mockito.mock(DaoProducto.class);
         DaoOferta daoOferta = Mockito.mock(DaoOferta.class);
-        DaoHorario daoHorario = Mockito.mock(DaoHorario.class);
-        ServicioConsultarProducto servicioConsultarProducto = new ServicioConsultarProducto(daoProducto, daoHorario, daoOferta);
+        ServicioConsultarProducto servicioConsultarProducto = new ServicioConsultarProducto(daoProducto, daoOferta);
 
         // act
         // assert
@@ -38,7 +36,6 @@ public class ServicioConsultarProductoTest {
         // arrange
         DaoProducto daoProducto = Mockito.mock(DaoProducto.class);
         DaoOferta daoOferta = Mockito.mock(DaoOferta.class);
-        DaoHorario daoHorario = Mockito.mock(DaoHorario.class);
 
         Producto producto = new ProductoTestDataBuilder().conId(1L).build();
         Oferta oferta = new OfertaTestDataBuilder().conIdProducto(producto.getId()).conValor(5000.00).build();
@@ -52,7 +49,7 @@ public class ServicioConsultarProductoTest {
         ));
 
         Mockito.when(daoOferta.consultarValorEnOferta(Mockito.anyLong())).thenReturn(5000.00);
-        ServicioConsultarProducto servicioConsultarProducto = new ServicioConsultarProducto(daoProducto, daoHorario, daoOferta);
+        ServicioConsultarProducto servicioConsultarProducto = new ServicioConsultarProducto(daoProducto, daoOferta);
         // act
         Producto productoFinal = servicioConsultarProducto.ejecutar(producto.getId());
         // assert
@@ -65,7 +62,6 @@ public class ServicioConsultarProductoTest {
         // arrange
         DaoProducto daoProducto = Mockito.mock(DaoProducto.class);
         DaoOferta daoOferta = Mockito.mock(DaoOferta.class);
-        DaoHorario daoHorario = Mockito.mock(DaoHorario.class);
 
         Producto producto = new ProductoTestDataBuilder().conId(1L).build();
 
@@ -78,7 +74,7 @@ public class ServicioConsultarProductoTest {
         ));
 
         Mockito.when(daoOferta.consultarValorEnOferta(Mockito.anyLong())).thenReturn(null);
-        ServicioConsultarProducto servicioConsultarProducto = new ServicioConsultarProducto(daoProducto, daoHorario, daoOferta);
+        ServicioConsultarProducto servicioConsultarProducto = new ServicioConsultarProducto(daoProducto, daoOferta);
         // act
         Producto productoFinal = servicioConsultarProducto.ejecutar(producto.getId());
         // assert

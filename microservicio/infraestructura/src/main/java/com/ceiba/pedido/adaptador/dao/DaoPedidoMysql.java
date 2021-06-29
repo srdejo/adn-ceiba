@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Optional;
 
 @Component
 public class DaoPedidoMysql implements DaoPedido {
@@ -20,9 +19,6 @@ public class DaoPedidoMysql implements DaoPedido {
 
     @SqlStatement(namespace = "pedido", value = "contarPedido")
     private static String sqlContarPedido;
-
-    @SqlStatement(namespace = "pedido", value = "buscar")
-    private static String sqlBuscar;
 
     public DaoPedidoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -38,16 +34,5 @@ public class DaoPedidoMysql implements DaoPedido {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("id_cliente", idCliente);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlContarPedido, paramSource, Integer.class);
-    }
-
-    @Override
-    public DtoPedido buscarPedido(Long idPedido) {
-        MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("id", idPedido);
-        List<DtoPedido> dtoPedidos = this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlBuscar, paramSource, new MapeoPedido());
-        if (dtoPedidos.size() > 0) {
-            return dtoPedidos.get(0);
-        }
-        return null;
     }
 }

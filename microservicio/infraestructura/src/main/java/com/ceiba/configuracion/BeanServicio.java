@@ -11,7 +11,6 @@ import com.ceiba.detalle_pedido.puerto.repositorio.RepositorioDetallePedido;
 import com.ceiba.detalle_pedido.servicio.ServicioActualizarDetallePedido;
 import com.ceiba.detalle_pedido.servicio.ServicioCrearDetallePedido;
 import com.ceiba.detalle_pedido.servicio.ServicioEliminarDetallePedido;
-import com.ceiba.horario.puerto.dao.DaoHorario;
 import com.ceiba.horario.puerto.repositorio.RepositorioHorario;
 import com.ceiba.horario.servicio.ServicioActualizarHorario;
 import com.ceiba.horario.servicio.ServicioCrearHorario;
@@ -147,8 +146,8 @@ public class BeanServicio {
     }
 
     @Bean
-    public ServicioConsultarProducto servicioConsultarProducto(DaoProducto daoProducto, DaoHorario daoHorario, DaoOferta daoOferta) {
-        return new ServicioConsultarProducto(daoProducto, daoHorario, daoOferta);
+    public ServicioConsultarProducto servicioConsultarProducto(DaoProducto daoProducto, DaoOferta daoOferta) {
+        return new ServicioConsultarProducto(daoProducto, daoOferta);
     }
 
 }

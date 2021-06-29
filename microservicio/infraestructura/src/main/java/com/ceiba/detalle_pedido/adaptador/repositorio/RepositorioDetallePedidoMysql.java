@@ -29,8 +29,8 @@ public class RepositorioDetallePedidoMysql implements RepositorioDetallePedido {
     }
 
     @Override
-    public Long crear(DetallePedido detalle_pedido) {
-        return this.customNamedParameterJdbcTemplate.crear(detalle_pedido, sqlCrear);
+    public Long crear(DetallePedido detallePedido) {
+        return this.customNamedParameterJdbcTemplate.crear(detallePedido, sqlCrear);
     }
 
     @Override
@@ -43,8 +43,8 @@ public class RepositorioDetallePedidoMysql implements RepositorioDetallePedido {
 
 
     @Override
-    public void actualizar(DetallePedido detalle_pedido) {
-        this.customNamedParameterJdbcTemplate.actualizar(detalle_pedido, sqlActualizar);
+    public void actualizar(DetallePedido detallePedido) {
+        this.customNamedParameterJdbcTemplate.actualizar(detallePedido, sqlActualizar);
     }
 
 }

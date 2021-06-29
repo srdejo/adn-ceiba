@@ -9,9 +9,9 @@ import com.ceiba.pedido.puerto.repositorio.RepositorioPedido;
 
 public class ServicioCrearPedido {
 
-    private final static String EL_CLIENTE_NO_ENCONTRADO = "No sé encontró el cliente para asignar el pedido";
-    private final static Double VALOR_DOMICILIO = 2000.00;
-    private final static int CANTIDAD_PEDIDOS_DOMICILIO_GRATIS = 10;
+    private final String EL_CLIENTE_NO_ENCONTRADO = "No sé encontró el cliente para asignar el pedido";
+    private final Double VALOR_DOMICILIO = 2000.00;
+    private final int CANTIDAD_PEDIDOS_DOMICILIO_GRATIS = 10;
 
     private final RepositorioPedido repositorioPedido;
     private final RepositorioCliente repositorioCliente;
