@@ -47,7 +47,7 @@ public class ConsultaControladorDetallePedidoTest {
         Mockito.when(manejadorListarDetallePedidos.ejecutar(Mockito.anyLong())).thenReturn(dtoDetallePedidos);
 
         // act - assert
-        mocMvc.perform(get("/detalle-pedidos/" + idPedido)
+        mocMvc.perform(get("/detalle-pedidos/{idPedido}", idPedido)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(2)))
