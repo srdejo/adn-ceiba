@@ -5,8 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.sql.Time;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -15,8 +15,8 @@ import java.time.LocalDate;
 public class ComandoOferta {
 
     private Long id;
-    private Time horaInicial;
-    private Time horaFinal;
+    private LocalTime horaInicial;
+    private LocalTime horaFinal;
     private LocalDate dia;
     private Double valor;
     private Long idProducto;

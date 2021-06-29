@@ -41,6 +41,7 @@ public class RepositorioDetallePedidoMysql implements RepositorioDetallePedido {
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
     }
 
+
     @Override
     public void actualizar(DetallePedido detalle_pedido) {
         this.customNamedParameterJdbcTemplate.actualizar(detalle_pedido, sqlActualizar);

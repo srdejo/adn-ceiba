@@ -2,8 +2,7 @@ package com.ceiba.comercio.controlador;
 
 import com.ceiba.ApplicationMock;
 import com.ceiba.comercio.comando.ComandoComercio;
-import com.ceiba.comercio.controlador.ComandoControladorComercio;
-import com.ceiba.comercio.testdatabuilder.ComandoComercioTestDataBuilder;
+import com.ceiba.comercio.servicio.testdatabuilder.ComandoComercioTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;

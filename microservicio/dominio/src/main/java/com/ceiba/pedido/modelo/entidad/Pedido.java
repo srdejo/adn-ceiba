@@ -1,31 +1,30 @@
 package com.ceiba.pedido.modelo.entidad;
 
-import com.ceiba.cliente.modelo.entidad.Cliente;
-import com.ceiba.detalle_pedido.modelo.entidad.DetallePedido;
+import com.ceiba.pedido.modelo.enums.EstadoPedido;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.time.LocalTime;
+
+import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
 @Getter
 public class Pedido {
     private static final String SE_DEBE_SELECCIONAR_CLIENTE = "Se debe seleccionar un cliente";
-    private static final String SE_DEBE_INGRESAR_HORA = "Se debe ingresar la hora";
-    private static final String SE_DEBE_INGRESAR_ESTADO = "Se debe ingresar el estado";
-    private static final String SE_DEBE_INGRESAR_VALOR_DOMICILIO = "Se debe ingresar el valor del domicilio";
-    private static final String SE_DEBE_INGRESAR_VALOR_DOMICILIO_VALIDO = "Se debe ingresar un valor del domicilio valido";
 
     private Long id;
-    private Long clienteId;
-    private List<DetallePedido> detallePedidos;
-    private LocalDateTime fechaCreacion;
+    private Long idCliente;
+    private LocalTime hora;
+    private EstadoPedido estadoPedido;
     private Double valorDomicilio;
+    private LocalDateTime fechaCreacion;
 
-    public Pedido(Long id, Long clienteId, List<DetallePedido> detallePedidos) {
+    public Pedido(Long id, Long idCliente, LocalTime hora, EstadoPedido estadoPedido, LocalDateTime fechaCreacion) {
+        validarObligatorio(idCliente, SE_DEBE_SELECCIONAR_CLIENTE);
         this.id = id;
-        this.clienteId = clienteId;
-        this.detallePedidos = detallePedidos;
-        this.fechaCreacion = LocalDateTime.now();
+        this.idCliente = idCliente;
+        this.fechaCreacion = fechaCreacion;
+        this.valorDomicilio = 0.0;
     }
 
     public void setValorDomicilio(Double valorDomicilio) {

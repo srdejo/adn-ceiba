@@ -1,5 +1,6 @@
 package com.ceiba.detalle_pedido.adaptador.dao;
 
+
 import com.ceiba.detalle_pedido.modelo.dto.DtoDetallePedido;
 import com.ceiba.infraestructura.jdbc.MapperResult;
 import org.springframework.jdbc.core.RowMapper;
@@ -14,12 +15,14 @@ public class MapeoDetallePedido implements RowMapper<DtoDetallePedido>, MapperRe
     public DtoDetallePedido mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 
         Long id = resultSet.getLong("id");
-        String celular = resultSet.getString("celular");
-        String nombre = resultSet.getString("nombre");
-        String direccion = resultSet.getString("direccion");
+        Long idPedido = resultSet.getLong("id_pedido");
+        Long idProducto = resultSet.getLong("id_producto");
+        Integer cantidad = resultSet.getInt("cantidad");
+        Double valor = resultSet.getDouble("valor");
+        String nota = resultSet.getString("nota");
         LocalDateTime fecha = extraerLocalDateTime(resultSet, "fecha_creacion");
 
-        return new DtoDetallePedido(id, celular, nombre, direccion, fecha);
+        return new DtoDetallePedido(id, idPedido, idProducto, cantidad, valor, nota, fecha);
     }
 
 }

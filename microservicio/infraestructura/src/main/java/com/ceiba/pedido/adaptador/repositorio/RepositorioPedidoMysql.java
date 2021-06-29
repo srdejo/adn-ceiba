@@ -43,14 +43,6 @@ public class RepositorioPedidoMysql implements RepositorioPedido {
     }
 
     @Override
-    public boolean existe(String celular) {
-        MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("celular", celular);
-
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, paramSource, Boolean.class);
-    }
-
-    @Override
     public void actualizar(Pedido pedido) {
         this.customNamedParameterJdbcTemplate.actualizar(pedido, sqlActualizar);
     }

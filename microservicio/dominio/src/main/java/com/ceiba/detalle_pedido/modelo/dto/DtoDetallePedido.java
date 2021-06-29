@@ -10,9 +10,11 @@ import java.time.LocalDateTime;
 public class DtoDetallePedido {
 
     private Long id;
-    private String celular;
-    private String nombre;
-    private String direccion;
+    private Long idPedido;
+    private Long idProducto;
+    private Integer cantidad;
+    private Double valorUnidad;
+    private String observacion;
     private LocalDateTime fechaCreacion;
 
 }

@@ -66,15 +66,15 @@ create table oferta (
  hora_inicial time not null,
  hora_final time not null,
  dia date not null,
- fecha_creacion datetime not null DEFAULT CURRENT_TIMESTAMP,
  valor double not null,
  id_producto int(11) not null,
+ fecha_creacion datetime not null DEFAULT CURRENT_TIMESTAMP,
  primary key (id),
  foreign key (id_producto) references producto(id)
 );
 
 insert into oferta values
-(null, '03:00:00', '04:00:00', CURDATE(), now(), 2500.00 , 1 );
+(null, '03:00:00', '04:00:00', CURDATE(), 3500.00 , 1 , now());
 
 create table pedido (
  id int(11) not null auto_increment,
@@ -88,11 +88,15 @@ create table pedido (
  foreign key (id_cliente) references cliente(id)
 );
 
+insert into pedido values
+(null, 1, 'PENDIENTE', CURTIME(), now() , 2000.00 );
+
 create table detalle_pedido (
  id int(11) not null auto_increment,
  id_pedido int(11) not null,
  id_producto int(11) not null,
  valor double not null,
+ cantidad int(11) not null,
  nota varchar(100) null,
  fecha_creacion datetime not null DEFAULT CURRENT_TIMESTAMP,
  primary key (id),

@@ -1,4 +1,4 @@
-package com.ceiba.cliente.testdatabuilder;
+package com.ceiba.cliente.servicio.testdatabuilder;
 
 import com.ceiba.cliente.comando.ComandoCliente;
 
@@ -20,8 +20,8 @@ public class ComandoClienteTestDataBuilder {
         direccion = UUID.randomUUID().toString();
     }
 
-    public ComandoClienteTestDataBuilder conNombre(String nombre) {
-        this.nombre = nombre;
+    public ComandoClienteTestDataBuilder conCelular(String celular) {
+        this.celular = celular;
         return this;
     }
 

@@ -69,8 +69,9 @@ public class BeanServicio {
 
     @Bean
     public ServicioCrearDetallePedido servicioCrearDetallePedido(RepositorioDetallePedido repositorioDetallePedido
-            , ServicioConsultarProducto servicioConsultarProducto, RepositorioHorario repositorioHorario) {
-        return new ServicioCrearDetallePedido(repositorioDetallePedido, servicioConsultarProducto, repositorioHorario);
+            , RepositorioProducto repositorioProducto
+            , RepositorioHorario repositorioHorario) {
+        return new ServicioCrearDetallePedido(repositorioDetallePedido, repositorioProducto, repositorioHorario);
     }
 
     @Bean
@@ -79,8 +80,10 @@ public class BeanServicio {
     }
 
     @Bean
-    public ServicioActualizarDetallePedido servicioActualizarDetallePedido(RepositorioDetallePedido repositorioDetallePedido) {
-        return new ServicioActualizarDetallePedido(repositorioDetallePedido);
+    public ServicioActualizarDetallePedido servicioActualizarDetallePedido(RepositorioDetallePedido repositorioDetallePedido
+            , RepositorioProducto repositorioProducto
+            , RepositorioHorario repositorioHorario) {
+        return new ServicioActualizarDetallePedido(repositorioDetallePedido, repositorioProducto, repositorioHorario);
     }
 
     @Bean
@@ -114,9 +117,10 @@ public class BeanServicio {
     }
 
     @Bean
-    public ServicioCrearPedido servicioCrearPedido(RepositorioPedido repositorioPedido, RepositorioCliente repositorioCliente
-            , ServicioCrearDetallePedido servicioCrearDetallePedido, DaoPedido daoPedido) {
-        return new ServicioCrearPedido(repositorioPedido, repositorioCliente, servicioCrearDetallePedido, daoPedido);
+    public ServicioCrearPedido servicioCrearPedido(RepositorioPedido repositorioPedido,
+                                                   RepositorioCliente repositorioCliente,
+                                                   DaoPedido daoPedido) {
+        return new ServicioCrearPedido(repositorioPedido, repositorioCliente, daoPedido);
     }
 
     @Bean
@@ -125,8 +129,10 @@ public class BeanServicio {
     }
 
     @Bean
-    public ServicioActualizarPedido servicioActualizarPedido(RepositorioPedido repositorioPedido) {
-        return new ServicioActualizarPedido(repositorioPedido);
+    public ServicioActualizarPedido servicioActualizarPedido(RepositorioPedido repositorioPedido,
+                                                             RepositorioCliente repositorioCliente,
+                                                             DaoPedido daoPedido) {
+        return new ServicioActualizarPedido(repositorioPedido, repositorioCliente, daoPedido);
     }
 
     @Bean

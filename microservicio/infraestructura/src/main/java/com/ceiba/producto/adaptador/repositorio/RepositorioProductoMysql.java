@@ -43,6 +43,14 @@ public class RepositorioProductoMysql implements RepositorioProducto {
     }
 
     @Override
+    public boolean existe(Long id) {
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("id", id);
+
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
+    }
+
+    @Override
     public void actualizar(Producto producto) {
         this.customNamedParameterJdbcTemplate.actualizar(producto, sqlActualizar);
     }

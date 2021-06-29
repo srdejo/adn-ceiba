@@ -21,7 +21,7 @@ public class Producto {
     private Long idComercio;
     private LocalDateTime fechaCreacion;
 
-    public Producto(Long id, String nombre, String descripcion, Double valor, Long idComercio) {
+    public Producto(Long id, String nombre, String descripcion, Double valor, Long idComercio, LocalDateTime fechaCreacion) {
         validarObligatorio(nombre, SE_DEBE_INGRESAR_VALOR);
         validarObligatorio(valor, SE_DEBE_INGRESAR_NOMBRE);
         validarObligatorio(idComercio, SE_DEBE_SELECCIONAR_COMERCIO);
@@ -32,6 +32,6 @@ public class Producto {
         this.descripcion = descripcion;
         this.valor = valor;
         this.idComercio = idComercio;
-        this.fechaCreacion = LocalDateTime.now();
+        this.fechaCreacion = fechaCreacion;
     }
 }

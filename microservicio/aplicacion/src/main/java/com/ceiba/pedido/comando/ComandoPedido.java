@@ -1,13 +1,12 @@
 package com.ceiba.pedido.comando;
 
-import com.ceiba.cliente.modelo.entidad.Cliente;
-import com.ceiba.detalle_pedido.modelo.entidad.DetallePedido;
+import com.ceiba.pedido.modelo.enums.EstadoPedido;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -17,6 +16,7 @@ public class ComandoPedido {
 
     private Long id;
     private Long clienteId;
-    private List<DetallePedido> detallePedidos;
+    private LocalTime hora;
+    private EstadoPedido estadoPedido;
 
 }

@@ -29,7 +29,6 @@ public class ComandoHorarioTestDataBuilder {
         return this;
     }
 
-
     public ComandoHorarioTestDataBuilder horaFinalMenor() {
         horaFinal = this.horaInicial.minusHours(2);
         return this;

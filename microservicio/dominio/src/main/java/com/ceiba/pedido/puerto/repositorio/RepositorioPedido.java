@@ -22,10 +22,4 @@ public interface RepositorioPedido {
      */
     void eliminar(Long id);
 
-    /**
-     * Permite validar si existe un pedido con un nombre
-     * @param celular
-     * @return si existe o no
-     */
-    boolean existe(String celular);
 }

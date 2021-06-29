@@ -30,9 +30,9 @@ public class DaoPedidoMysql implements DaoPedido {
     }
 
     @Override
-    public Long contarPedidosEntregados(Long idCliente) {
+    public Integer contarPedidosEntregados(Long idCliente) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("id_cliente", idCliente);
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlContarPedido, paramSource, Long.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlContarPedido, paramSource, Integer.class);
     }
 }

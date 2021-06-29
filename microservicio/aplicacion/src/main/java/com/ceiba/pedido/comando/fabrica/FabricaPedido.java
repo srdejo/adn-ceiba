@@ -1,9 +1,10 @@
 package com.ceiba.pedido.comando.fabrica;
 
-import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.pedido.comando.ComandoPedido;
 import com.ceiba.pedido.modelo.entidad.Pedido;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDateTime;
 
 @Component
 public class FabricaPedido {
@@ -12,7 +13,9 @@ public class FabricaPedido {
         return new Pedido(
                 comandoPedido.getId(),
                 comandoPedido.getClienteId(),
-                comandoPedido.getDetallePedidos()
+                comandoPedido.getHora(),
+                comandoPedido.getEstadoPedido(),
+                LocalDateTime.now()
         );
     }
 

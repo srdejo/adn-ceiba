@@ -1,4 +1,4 @@
-package com.ceiba.comercio.testdatabuilder;
+package com.ceiba.comercio.servicio.testdatabuilder;
 
 import com.ceiba.comercio.comando.ComandoComercio;
 

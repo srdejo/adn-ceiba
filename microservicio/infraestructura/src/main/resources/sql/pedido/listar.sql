@@ -1,2 +1,2 @@
-select id,nombre,celular,direccion,fecha_creacion
-from cliente
+select id,id_cliente,estado_pedido,hora,fecha_creacion,valor_domicilio
+from pedido

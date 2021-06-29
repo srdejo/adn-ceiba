@@ -1,6 +1,6 @@
-update cliente
-set nombre = :nombre,
-	celular = :celular,
-	direccion = :direccion,
-	fecha_creacion = :fechaCreacion
+update pedido
+set id_cliente = :idCliente,
+	estado_pedido = :estadoPedido,
+	hora = :hora,
+	valor_domicilio = :valorDomicilio
 where id = :id

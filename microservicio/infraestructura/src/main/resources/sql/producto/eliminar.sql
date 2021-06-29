@@ -1,3 +1,3 @@
 delete 
-from cliente
+from producto
 where id = :id

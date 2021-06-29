@@ -45,14 +45,14 @@ public class RepositorioHorarioMysql implements RepositorioHorario {
 
 
     @Override
-    public boolean estaAbierto(Long idComercio) {
+    public boolean estaAbierto(Long idProducto) {
         LocalDateTime fechaHoraActual = LocalDateTime.now();
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("hora_actual", fechaHoraActual.toLocalTime());
         paramSource.addValue("dia_semana", fechaHoraActual.getDayOfWeek().getValue());
-        paramSource.addValue("id_comercio", idComercio);
+        paramSource.addValue("id_producto", idProducto);
 
-        Long horariosDisponibles = this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlHorarioDisponible, paramSource, Long.class);
+        Integer horariosDisponibles = this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlHorarioDisponible, paramSource, Integer.class);
         return horariosDisponibles > 0;
     }
 

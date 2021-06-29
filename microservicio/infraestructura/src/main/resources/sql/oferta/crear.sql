@@ -1,1 +1,2 @@
-insert into cliente (nombre, celular, direccion, fecha_creacion) values (:nombre, :celular, :direccion, :fechaCreacion)
+insert into oferta (hora_inicial, hora_final, dia, valor, id_producto, fecha_creacion)
+values (:horaInicial, :horaFinal, :dia, :valor, :idProducto, :fechaCreacion)

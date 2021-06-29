@@ -1,3 +1,3 @@
 delete 
-from cliente
+from detalle_pedido
 where id = :id

@@ -1,3 +1,3 @@
 delete 
-from cliente
+from oferta
 where id = :id

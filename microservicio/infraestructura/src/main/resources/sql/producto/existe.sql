@@ -1,1 +1,1 @@
-select count(1) from cliente where celular = :celular
+select count(1) from producto where id = :id

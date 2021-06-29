@@ -4,6 +4,8 @@ import com.ceiba.producto.modelo.entidad.Producto;
 import com.ceiba.producto.comando.ComandoProducto;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 public class FabricaProducto {
 
@@ -13,7 +15,8 @@ public class FabricaProducto {
                 comandoProducto.getNombre(),
                 comandoProducto.getDescripcion(),
                 comandoProducto.getValor(),
-                comandoProducto.getIdComercio()
+                comandoProducto.getIdComercio(),
+                LocalDateTime.now()
         );
     }
 

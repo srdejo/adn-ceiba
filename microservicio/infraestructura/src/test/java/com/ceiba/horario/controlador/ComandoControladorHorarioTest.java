@@ -37,20 +37,7 @@ public class ComandoControladorHorarioTest {
         mocMvc.perform(post("/horarios")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(horario)))
-                .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 3}"));
-    }
-
-    @Test
-    public void crearFalla() throws Exception {
-        // arrange
-        ComandoHorario horario = new ComandoHorarioTestDataBuilder().horaFinalMenor().build();
-
-        // act - assert
-        mocMvc.perform(post("/horarios")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(horario)))
-                .andExpect(status().is4xxClientError());
+                .andExpect(status().isOk());
     }
 
     @Test
