@@ -1,7 +1,6 @@
 package com.ceiba.producto.servicio;
 
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
-import com.ceiba.horario.puerto.dao.DaoHorario;
 import com.ceiba.oferta.puerto.dao.DaoOferta;
 import com.ceiba.producto.modelo.dto.DtoProducto;
 import com.ceiba.producto.modelo.entidad.Producto;
