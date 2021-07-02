@@ -18,16 +18,14 @@ public class ManejadorActualizarPedido implements ManejadorComando<ComandoPedido
     private final FabricaPedido fabricaPedido;
     private final ServicioActualizarPedido servicioActualizarPedido;
     private final FabricaCliente fabricaCliente;
-    private final DaoPedido daoPedido;
     private final ServicioCrearCliente servicioCrearCliente;
 
     public ManejadorActualizarPedido(FabricaPedido fabricaPedido, ServicioActualizarPedido servicioActualizarPedido,
-                                     FabricaCliente fabricaCliente, DaoPedido daoPedido, ServicioCrearCliente servicioCrearCliente) {
+                                     FabricaCliente fabricaCliente, ServicioCrearCliente servicioCrearCliente) {
 
         this.fabricaPedido = fabricaPedido;
         this.servicioActualizarPedido = servicioActualizarPedido;
         this.fabricaCliente = fabricaCliente;
-        this.daoPedido = daoPedido;
         this.servicioCrearCliente = servicioCrearCliente;
     }
 
