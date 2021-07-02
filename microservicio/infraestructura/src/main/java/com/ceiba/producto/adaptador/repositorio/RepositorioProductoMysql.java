@@ -38,17 +38,17 @@ public class RepositorioProductoMysql implements RepositorioProducto {
 
     @Override
     public void eliminar(Long id) {
-        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, crearParametro(id));
+        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, mapearId(id));
     }
 
     @Override
     public boolean existe(Long id) {
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, crearParametro(id), Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, mapearId(id), Boolean.class);
     }
 
     @Override
     public Double obtenerValor(Long id) {
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlValor, crearParametro(id), Double.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlValor, mapearId(id), Double.class);
     }
 
     @Override
@@ -56,7 +56,7 @@ public class RepositorioProductoMysql implements RepositorioProducto {
         this.customNamedParameterJdbcTemplate.actualizar(producto, sqlActualizar);
     }
 
-    private MapSqlParameterSource crearParametro(Long id){
+    private MapSqlParameterSource mapearId(Long id) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("id", id);
         return paramSource;
