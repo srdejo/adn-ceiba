@@ -14,7 +14,6 @@ import com.ceiba.pedido.comando.fabrica.FabricaPedido;
 import com.ceiba.pedido.modelo.dto.DtoPedido;
 import com.ceiba.pedido.modelo.entidad.Pedido;
 import com.ceiba.pedido.modelo.enums.EstadoPedido;
-import com.ceiba.pedido.puerto.dao.DaoPedido;
 import com.ceiba.pedido.servicio.ServicioConsultarPedido;
 import com.ceiba.pedido.servicio.ServicioCrearPedido;
 import org.springframework.stereotype.Component;
@@ -30,13 +29,12 @@ public class ManejadorCrearPedido implements ManejadorComandoRespuesta<ComandoPe
     private final ServicioCrearPedido servicioCrearPedido;
     private final ServicioCrearDetallePedido servicioCrearDetallePedido;
     private final ServicioConsultarPedido servicioConsultarPedido;
-    private final DaoPedido daoPedido;
     private final ServicioCrearCliente servicioCrearCliente;
 
     public ManejadorCrearPedido(FabricaPedido fabricaPedido, FabricaDetallePedido fabricaDetallePedido,
                                 FabricaCliente fabricaCliente, ServicioCrearPedido servicioCrearPedido,
                                 ServicioCrearDetallePedido servicioCrearDetallePedido,
-                                ServicioConsultarPedido servicioConsultarPedido, DaoPedido daoPedido,
+                                ServicioConsultarPedido servicioConsultarPedido,
                                 ServicioCrearCliente servicioCrearCliente) {
         this.fabricaPedido = fabricaPedido;
         this.fabricaDetallePedido = fabricaDetallePedido;
@@ -44,7 +42,6 @@ public class ManejadorCrearPedido implements ManejadorComandoRespuesta<ComandoPe
         this.servicioCrearPedido = servicioCrearPedido;
         this.servicioCrearDetallePedido = servicioCrearDetallePedido;
         this.servicioConsultarPedido = servicioConsultarPedido;
-        this.daoPedido = daoPedido;
         this.servicioCrearCliente = servicioCrearCliente;
     }
 

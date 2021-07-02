@@ -1,20 +1,10 @@
 package com.ceiba.pedido.servicio;
 
 import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
-import com.ceiba.detalle_pedido.modelo.dto.DtoDetallePedido;
-import com.ceiba.detalle_pedido.puerto.dao.DaoDetallePedido;
-import com.ceiba.detalle_pedido.puerto.repositorio.RepositorioDetallePedido;
-import com.ceiba.detalle_pedido.servicio.ServicioCrearDetallePedido;
 import com.ceiba.dominio.excepcion.ExcepcionSinDatos;
-import com.ceiba.horario.puerto.repositorio.RepositorioHorario;
-import com.ceiba.pedido.modelo.dto.DtoPedido;
 import com.ceiba.pedido.modelo.entidad.Pedido;
 import com.ceiba.pedido.puerto.dao.DaoPedido;
 import com.ceiba.pedido.puerto.repositorio.RepositorioPedido;
-import com.ceiba.producto.puerto.dao.DaoProducto;
-import com.ceiba.producto.puerto.repositorio.RepositorioProducto;
-
-import java.util.List;
 
 
 public class ServicioCrearPedido {

@@ -4,19 +4,16 @@ import com.ceiba.cliente.comando.ComandoCliente;
 import com.ceiba.cliente.comando.fabrica.FabricaCliente;
 import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.cliente.servicio.ServicioCrearCliente;
-import com.ceiba.detalle_pedido.comando.ComandoDetallePedido;
 import com.ceiba.detalle_pedido.comando.fabrica.FabricaDetallePedido;
 import com.ceiba.detalle_pedido.servicio.ServicioCrearDetallePedido;
 import com.ceiba.manejador.ManejadorComando;
+import com.ceiba.pedido.comando.ComandoPedido;
+import com.ceiba.pedido.comando.fabrica.FabricaPedido;
 import com.ceiba.pedido.modelo.entidad.Pedido;
 import com.ceiba.pedido.puerto.dao.DaoPedido;
 import com.ceiba.pedido.servicio.ServicioActualizarPedido;
-import com.ceiba.pedido.comando.ComandoPedido;
-import com.ceiba.pedido.comando.fabrica.FabricaPedido;
 import com.ceiba.pedido.servicio.ServicioConsultarPedido;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 public class ManejadorActualizarPedido implements ManejadorComando<ComandoPedido> {

@@ -1,6 +1,5 @@
 package com.ceiba.pedido.puerto.repositorio;
 
-import com.ceiba.pedido.modelo.dto.DtoPedido;
 import com.ceiba.pedido.modelo.entidad.Pedido;
 
 public interface RepositorioPedido {
