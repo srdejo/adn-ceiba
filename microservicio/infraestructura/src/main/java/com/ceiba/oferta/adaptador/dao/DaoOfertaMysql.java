@@ -31,12 +31,16 @@ public class DaoOfertaMysql implements DaoOferta {
     }
 
     @Override
-    public Double consultarValorEnOferta(Long id) {
+    public Double consultarValorEnOferta(Long idProducto) {
         LocalDateTime fechaHoraActual = LocalDateTime.now();
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("id_producto", id);
+        paramSource.addValue("id_producto", idProducto);
         paramSource.addValue("hora_actual", fechaHoraActual.toLocalTime());
         paramSource.addValue("fecha_actual", fechaHoraActual.toLocalDate());
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlConsultarOferta, paramSource, Double.class);
+        List<DtoOferta> dtoOfertas = this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlConsultarOferta, paramSource, new MapeoOferta());
+        if (dtoOfertas.size() == 0) {
+            return null;
+        }
+        return dtoOfertas.get(0).getValor();
     }
 }

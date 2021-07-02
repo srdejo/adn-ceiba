@@ -42,7 +42,7 @@ public class ComandoControladorHorarioTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(horario)))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 3}"));;
+                .andExpect(content().json("{'valor': 9}"));;
     }
 
     @Test

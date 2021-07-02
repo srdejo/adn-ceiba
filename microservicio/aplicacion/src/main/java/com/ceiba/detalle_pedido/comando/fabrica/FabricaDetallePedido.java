@@ -4,6 +4,8 @@ import com.ceiba.detalle_pedido.comando.ComandoDetallePedido;
 import com.ceiba.detalle_pedido.modelo.entidad.DetallePedido;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 public class FabricaDetallePedido {
 
@@ -13,9 +15,8 @@ public class FabricaDetallePedido {
                 comandoDetallePedido.getIdPedido(),
                 comandoDetallePedido.getIdProducto(),
                 comandoDetallePedido.getCantidad(),
-                comandoDetallePedido.getValorUnidad(),
                 comandoDetallePedido.getObservacion(),
-                comandoDetallePedido.getFechaCreacion()
+                LocalDateTime.now()
         );
     }
 

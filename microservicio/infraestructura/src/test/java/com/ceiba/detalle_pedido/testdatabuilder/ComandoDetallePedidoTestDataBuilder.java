@@ -22,6 +22,7 @@ public class ComandoDetallePedidoTestDataBuilder {
         valorUnidad = random.nextDouble();
         fechaCreacion = LocalDateTime.now();
         observacion = UUID.randomUUID().toString();
+        idProducto = random.nextLong();
     }
 
     public ComandoDetallePedidoTestDataBuilder conIdPedido(Long idPedido) {
@@ -35,7 +36,6 @@ public class ComandoDetallePedidoTestDataBuilder {
     }
 
     public ComandoDetallePedido build() {
-        return new ComandoDetallePedido(id, idPedido, idProducto, cantidad,
-                valorUnidad, observacion, fechaCreacion);
+        return new ComandoDetallePedido(id, idPedido, idProducto, cantidad, observacion);
     }
 }

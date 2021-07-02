@@ -27,6 +27,9 @@ public class RepositorioClienteMysql implements RepositorioCliente {
     @SqlStatement(namespace = "cliente", value = "existeId")
     private static String sqlExisteId;
 
+    @SqlStatement(namespace = "cliente", value = "obtener")
+    private static String sqlObtener;
+
     public RepositorioClienteMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
@@ -50,6 +53,14 @@ public class RepositorioClienteMysql implements RepositorioCliente {
         paramSource.addValue("celular", celular);
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, paramSource, Boolean.class);
+    }
+
+    @Override
+    public Long obtenerId(String celular) {
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("celular", celular);
+
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlObtener, paramSource, Long.class);
     }
 
     @Override

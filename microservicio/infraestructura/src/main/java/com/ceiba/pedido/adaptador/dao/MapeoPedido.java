@@ -22,7 +22,7 @@ public class MapeoPedido implements RowMapper<DtoPedido>, MapperResult {
         LocalDateTime fecha = extraerLocalDateTime(resultSet, "fecha_creacion");
         Double valorDomicilio = resultSet.getDouble("valor_domicilio");
 
-        return new DtoPedido(id, idCliente, hora, estadoPedido, valorDomicilio, fecha);
+        return new DtoPedido(id, idCliente, hora, estadoPedido, valorDomicilio, null, fecha);
     }
 
 }

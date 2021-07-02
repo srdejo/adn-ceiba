@@ -7,15 +7,15 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class ManejadorListarProductos {
+public class ManejadorListarProductosDisponibles {
 
     private final DaoProducto daoProducto;
 
-    public ManejadorListarProductos(DaoProducto daoProducto) {
+    public ManejadorListarProductosDisponibles(DaoProducto daoProducto) {
         this.daoProducto = daoProducto;
     }
 
-    public List<DtoProducto> ejecutar(Long idComercio) {
-        return this.daoProducto.listar(idComercio);
+    public List<DtoProducto> ejecutar() {
+        return this.daoProducto.listarDisponibles();
     }
 }

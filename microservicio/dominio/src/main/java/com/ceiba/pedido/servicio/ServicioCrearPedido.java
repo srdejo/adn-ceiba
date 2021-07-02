@@ -1,10 +1,20 @@
 package com.ceiba.pedido.servicio;
 
 import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
+import com.ceiba.detalle_pedido.modelo.dto.DtoDetallePedido;
+import com.ceiba.detalle_pedido.puerto.dao.DaoDetallePedido;
+import com.ceiba.detalle_pedido.puerto.repositorio.RepositorioDetallePedido;
+import com.ceiba.detalle_pedido.servicio.ServicioCrearDetallePedido;
 import com.ceiba.dominio.excepcion.ExcepcionSinDatos;
+import com.ceiba.horario.puerto.repositorio.RepositorioHorario;
+import com.ceiba.pedido.modelo.dto.DtoPedido;
 import com.ceiba.pedido.modelo.entidad.Pedido;
 import com.ceiba.pedido.puerto.dao.DaoPedido;
 import com.ceiba.pedido.puerto.repositorio.RepositorioPedido;
+import com.ceiba.producto.puerto.dao.DaoProducto;
+import com.ceiba.producto.puerto.repositorio.RepositorioProducto;
+
+import java.util.List;
 
 
 public class ServicioCrearPedido {
@@ -26,15 +36,15 @@ public class ServicioCrearPedido {
 
     public Long ejecutar(Pedido pedido) {
         validarClienteExiste(pedido.getIdCliente());
-        calcularOfertaDomicilioGratis(pedido);
         pedido.asignarValorDomicilio(calcularOfertaDomicilioGratis(pedido));
         return this.repositorioPedido.crear(pedido);
     }
 
     private Double calcularOfertaDomicilioGratis(Pedido pedido) {
-        if (this.daoPedido.contarPedidosEntregados(pedido.getIdCliente()) % CANTIDAD_PEDIDOS_DOMICILIO_GRATIS != 0) {
+        int cantidadDomicilios = this.daoPedido.contarPedidosEntregados(pedido.getIdCliente());
+        if (cantidadDomicilios == 0 || cantidadDomicilios % CANTIDAD_PEDIDOS_DOMICILIO_GRATIS != 0) {
             return VALOR_DOMICILIO;
-        }else {
+        } else {
             return 0.0;
         }
     }

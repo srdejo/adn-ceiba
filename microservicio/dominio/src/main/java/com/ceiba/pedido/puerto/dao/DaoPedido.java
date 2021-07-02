@@ -9,4 +9,6 @@ public interface DaoPedido {
     List<DtoPedido> listar();
 
     Integer contarPedidosEntregados(Long idCliente);
+
+    DtoPedido buscar(Long id);
 }

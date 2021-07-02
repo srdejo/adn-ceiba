@@ -2,12 +2,11 @@ package com.ceiba.cliente.servicio;
 
 import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
-import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
+
+import java.util.Objects;
 
 
 public class ServicioCrearCliente {
-
-    private static final String EL_USUARIO_YA_EXISTE_EN_EL_SISTEMA = "El cliente ya existe en el sistema";
 
     private final RepositorioCliente repositorioCliente;
 
@@ -16,14 +15,12 @@ public class ServicioCrearCliente {
     }
 
     public Long ejecutar(Cliente cliente) {
-        validarExistenciaPrevia(cliente);
-        return this.repositorioCliente.crear(cliente);
-    }
-
-    private void validarExistenciaPrevia(Cliente cliente) {
-        boolean existe = this.repositorioCliente.existe(cliente.getCelular());
-        if (existe) {
-            throw new ExcepcionDuplicidad(EL_USUARIO_YA_EXISTE_EN_EL_SISTEMA);
+        if (this.repositorioCliente.existe(cliente.getCelular())) {
+            Long id = repositorioCliente.obtenerId(cliente.getCelular());
+            this.repositorioCliente.actualizar(new Cliente(id, cliente.getCelular(), cliente.getNombre(), cliente.getDireccion()));
+            return id;
+        } else {
+            return this.repositorioCliente.crear(cliente);
         }
     }
 }

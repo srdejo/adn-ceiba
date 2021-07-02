@@ -22,17 +22,29 @@ public class DaoProductoMysql implements DaoProducto {
     @SqlStatement(namespace = "producto", value = "listarPorId")
     private static String sqlListarPorId;
 
+    @SqlStatement(namespace = "producto", value = "listarDisponibles")
+    private static String sqlListarDisponibles;
+
     public DaoProductoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
 
     @Override
-    public List<DtoProducto> listar() {
+    public List<DtoProducto> listar(Long idComercio) {
+        LocalDateTime fechaHoraActual = LocalDateTime.now();
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("idComercio", idComercio);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar, paramSource, new MapeoProducto());
+    }
+
+    @Override
+    public List<DtoProducto> listarDisponibles() {
         LocalDateTime fechaHoraActual = LocalDateTime.now();
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("hora_actual", fechaHoraActual.toLocalTime().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
         paramSource.addValue("dia_semana", fechaHoraActual.getDayOfWeek().getValue());
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar, paramSource, new MapeoProducto());
+        paramSource.addValue("dia", fechaHoraActual.toLocalDate());
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarDisponibles, paramSource, new MapeoProducto());
     }
 
     @Override

@@ -8,5 +8,5 @@ public interface DaoOferta {
 
     List<DtoOferta> listar();
 
-    Double consultarValorEnOferta(Long id);
+    Double consultarValorEnOferta(Long idProducto);
 }

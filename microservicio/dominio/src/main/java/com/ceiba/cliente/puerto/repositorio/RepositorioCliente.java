@@ -34,6 +34,12 @@ public interface RepositorioCliente {
     boolean existe(String celular);
 
     /**
+     * Si un cliente existe obtenerlo por Id
+     * @param celular
+     * @return
+     */
+    Long obtenerId(String celular);
+    /**
      * Permite validar si existe un ususario
      *
      * @param id

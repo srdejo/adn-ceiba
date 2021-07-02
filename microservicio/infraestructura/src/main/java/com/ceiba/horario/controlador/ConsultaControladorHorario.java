@@ -22,7 +22,7 @@ public class ConsultaControladorHorario {
     }
 
     @GetMapping
-    @ApiOperation("Listar horario")
+    @ApiOperation("Listar horarios")
     public List<DtoHorario> listar() {
         return this.manejadorListarHorarios.ejecutar();
     }

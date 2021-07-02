@@ -1,0 +1,1 @@
+select id from cliente where celular = :celular

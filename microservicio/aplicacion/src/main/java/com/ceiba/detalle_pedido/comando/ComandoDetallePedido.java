@@ -17,7 +17,5 @@ public class ComandoDetallePedido {
     private Long idPedido;
     private Long idProducto;
     private Integer cantidad;
-    private Double valorUnidad;
     private String observacion;
-    private LocalDateTime fechaCreacion;
 }

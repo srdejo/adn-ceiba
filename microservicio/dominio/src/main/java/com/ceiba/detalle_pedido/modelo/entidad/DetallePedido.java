@@ -24,22 +24,26 @@ public class DetallePedido {
     private String observacion;
     private LocalDateTime fechaCreacion;
 
-    public DetallePedido(Long id, Long idPedido, Long idProducto, Integer cantidad, Double valorUnidad, String observacion, LocalDateTime fechaCreacion) {
+    public DetallePedido(Long id, Long idPedido, Long idProducto, Integer cantidad,  String observacion, LocalDateTime fechaCreacion) {
 
-        validarObligatorio(idPedido, SE_DEBE_CREAR_UN_PEDIDO);
         validarObligatorio(idProducto, SE_DEBE_SELECCIONAR_UN_PRODUCTO);
         validarObligatorio(cantidad, SE_DEBE_INGRESAR_CANTIDAD);
-        validarObligatorio(valorUnidad, SE_DEBE_INGRESAR_VALOR);
-
-        validarPositivo(valorUnidad, SE_DEBE_INGRESAR_VALOR_VALIDO);
         validarPositivo(Double.valueOf(cantidad), SE_DEBE_INGRESAR_CANTIDAD_VALIDA);
 
         this.id = id;
         this.idPedido = idPedido;
         this.idProducto = idProducto;
         this.cantidad = cantidad;
-        this.valorUnidad = valorUnidad;
         this.observacion = observacion;
         this.fechaCreacion = fechaCreacion;
+    }
+
+    public void asignarIdPedido(Long idPedido){
+        this.idPedido = idPedido;
+    }
+
+    public void asignarValorUnidad(Double valorUnidad){
+        validarPositivo(valorUnidad, SE_DEBE_INGRESAR_VALOR_VALIDO);
+        this.valorUnidad = valorUnidad;
     }
 }

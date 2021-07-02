@@ -20,6 +20,9 @@ public class DaoPedidoMysql implements DaoPedido {
     @SqlStatement(namespace = "pedido", value = "contarPedido")
     private static String sqlContarPedido;
 
+    @SqlStatement(namespace = "pedido", value = "buscar")
+    private static String sqlBuscar;
+
     public DaoPedidoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
@@ -34,5 +37,14 @@ public class DaoPedidoMysql implements DaoPedido {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("id_cliente", idCliente);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlContarPedido, paramSource, Integer.class);
+    }
+
+    @Override
+    public DtoPedido buscar(Long id) {
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("id", id);
+
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlBuscar, paramSource, new MapeoPedido()).get(0);
+
     }
 }

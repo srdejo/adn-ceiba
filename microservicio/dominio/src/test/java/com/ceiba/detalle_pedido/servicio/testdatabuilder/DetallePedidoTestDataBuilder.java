@@ -36,6 +36,6 @@ public class DetallePedidoTestDataBuilder {
 
     public DetallePedido build() {
         return new DetallePedido(id, idPedido, idProducto, cantidad,
-                valorUnidad, observacion, fechaCreacion);
+                observacion, fechaCreacion);
     }
 }

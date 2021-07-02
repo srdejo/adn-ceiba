@@ -19,6 +19,5 @@ public class ComandoHorario {
     private LocalTime horaFinal;
     private Long idComercio;
     private Integer diaSemana;
-    private LocalDateTime fechaCreacion;
 
 }

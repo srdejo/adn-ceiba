@@ -32,4 +32,13 @@ public interface RepositorioProducto {
      * @return
      */
     boolean existe(Long id);
+
+
+    /**
+     * Permite consultar la existencia de un producto
+     *
+     * @param id
+     * @return
+     */
+    Double obtenerValor(Long id);
 }

@@ -17,10 +17,11 @@ public class MapeoProducto implements RowMapper<DtoProducto>, MapperResult {
         String nombre = resultSet.getString("nombre");
         String descripcion = resultSet.getString("descripcion");
         Double valor = resultSet.getDouble("valor");
+        Double valorOferta = resultSet.getDouble("valor_oferta");
         Long idComercio = resultSet.getLong("id_comercio");
         LocalDateTime fecha = extraerLocalDateTime(resultSet, "fecha_creacion");
 
-        return new DtoProducto(id, nombre, descripcion, valor, idComercio, fecha);
+        return new DtoProducto(id, nombre, descripcion, valor, valorOferta, idComercio, fecha);
     }
 
 }

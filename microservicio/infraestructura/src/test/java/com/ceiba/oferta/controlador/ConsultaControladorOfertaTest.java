@@ -2,13 +2,8 @@ package com.ceiba.oferta.controlador;
 
 import com.ceiba.ApplicationMock;
 import com.ceiba.oferta.consulta.ManejadorListarOfertas;
-import com.ceiba.oferta.modelo.dto.DtoOferta;
-import com.ceiba.oferta.testdatabuilder.DtoOfertaTestDataBuilder;
-import com.ceiba.pedido.modelo.dto.DtoPedido;
-import com.ceiba.pedido.testdatabuilder.DtoPedidoTestDataBuilder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -17,9 +12,6 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.notNullValue;

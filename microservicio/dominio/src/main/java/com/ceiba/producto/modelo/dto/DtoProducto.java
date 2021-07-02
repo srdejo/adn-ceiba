@@ -13,6 +13,7 @@ public class DtoProducto {
     private String nombre;
     private String descripcion;
     private Double valor;
+    private Double valorOferta;
     private Long idComercio;
     private LocalDateTime fechaCreacion;
 

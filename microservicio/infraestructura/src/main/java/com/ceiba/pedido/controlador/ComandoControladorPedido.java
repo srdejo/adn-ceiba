@@ -1,11 +1,12 @@
 package com.ceiba.pedido.controlador;
 
 import com.ceiba.ComandoRespuesta;
+import com.ceiba.pedido.modelo.dto.DtoPedido;
+import com.ceiba.pedido.modelo.entidad.Pedido;
 import com.ceiba.pedido.comando.ComandoPedido;
 import com.ceiba.pedido.comando.manejador.ManejadorActualizarPedido;
 import com.ceiba.pedido.comando.manejador.ManejadorCrearPedido;
 import com.ceiba.pedido.comando.manejador.ManejadorEliminarPedido;
-import com.ceiba.pedido.modelo.enums.EstadoPedido;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +32,7 @@ public class ComandoControladorPedido {
 
     @PostMapping
     @ApiOperation("Crear Pedido")
-    public ComandoRespuesta<Long> crear(@RequestBody ComandoPedido comandoPedido) {
-        comandoPedido.setEstadoPedido(EstadoPedido.PENDIENTE);
+    public ComandoRespuesta<DtoPedido> crear(@RequestBody ComandoPedido comandoPedido) {
         return manejadorCrearPedido.ejecutar(comandoPedido);
     }
 

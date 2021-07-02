@@ -41,19 +41,6 @@ public class ComandoControladorClienteTest {
                 .andExpect(status().isOk());
     }
 
-    @Test
-    @Order(2)
-    public void actualizar() throws Exception{
-        // arrange
-        Long id = 2L;
-        ComandoCliente cliente = new ComandoClienteTestDataBuilder().build();
-
-        // act - assert
-        mocMvc.perform(put("/clientes/{id}",id)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(cliente)))
-                .andExpect(status().isOk());
-    }
 
     @Test
     @Order(3)

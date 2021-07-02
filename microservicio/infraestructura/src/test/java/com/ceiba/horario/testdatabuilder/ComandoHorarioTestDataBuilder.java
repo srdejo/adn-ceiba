@@ -13,7 +13,6 @@ public class ComandoHorarioTestDataBuilder {
     private LocalTime horaFinal;
     private Long idComercio;
     private Integer diaSemana;
-    private LocalDateTime fechaCreacion;
 
     public ComandoHorarioTestDataBuilder() {
         Random random = new Random();
@@ -21,7 +20,6 @@ public class ComandoHorarioTestDataBuilder {
         horaInicial = LocalTime.now().minusMinutes(5);
         idComercio = Long.valueOf(1);
         diaSemana = LocalDateTime.now().getDayOfWeek().getValue();
-        fechaCreacion = LocalDateTime.now();
     }
 
     public ComandoHorarioTestDataBuilder horaFinalMayor() {
@@ -35,6 +33,6 @@ public class ComandoHorarioTestDataBuilder {
     }
 
     public ComandoHorario build() {
-        return new ComandoHorario(id, horaInicial, horaFinal, idComercio, diaSemana, fechaCreacion);
+        return new ComandoHorario(id, horaInicial, horaFinal, idComercio, diaSemana);
     }
 }

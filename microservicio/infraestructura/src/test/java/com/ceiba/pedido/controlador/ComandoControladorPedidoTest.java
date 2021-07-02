@@ -47,7 +47,7 @@ public class ComandoControladorPedidoTest {
     public void actualizar() throws Exception {
         // arrange
         Long id = 1L;
-        ComandoPedido pedido = new ComandoPedidoTestDataBuilder().conEstado(EstadoPedido.DESPACHADO).build();
+        ComandoPedido pedido = new ComandoPedidoTestDataBuilder().conEstado(EstadoPedido.DESPACHADO.toString()).build();
         // act - assert
         mocMvc.perform(put("/pedidos/{id}", id)
                 .contentType(MediaType.APPLICATION_JSON)

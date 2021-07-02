@@ -24,6 +24,9 @@ public class RepositorioProductoMysql implements RepositorioProducto {
     @SqlStatement(namespace = "producto", value = "existe")
     private static String sqlExiste;
 
+    @SqlStatement(namespace = "producto", value = "valor")
+    private static String sqlValor;
+
     public RepositorioProductoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
@@ -47,6 +50,14 @@ public class RepositorioProductoMysql implements RepositorioProducto {
         paramSource.addValue("id", id);
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, paramSource, Boolean.class);
+    }
+
+    @Override
+    public Double obtenerValor(Long id) {
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("id", id);
+
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlValor, paramSource, Double.class);
     }
 
     @Override
