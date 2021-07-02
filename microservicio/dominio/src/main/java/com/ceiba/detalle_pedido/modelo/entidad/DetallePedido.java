@@ -9,10 +9,8 @@ import static com.ceiba.dominio.ValidadorArgumento.validarPositivo;
 
 @Getter
 public class DetallePedido {
-    private static final String SE_DEBE_CREAR_UN_PEDIDO = "Se debe crear un pedido previamente";
     private static final String SE_DEBE_SELECCIONAR_UN_PRODUCTO = "Se debe seleccionar un producto";
     private static final String SE_DEBE_INGRESAR_CANTIDAD = "Se debe ingresar la cantidad";
-    private static final String SE_DEBE_INGRESAR_VALOR = "Se debe ingresar el valor";
     private static final String SE_DEBE_INGRESAR_CANTIDAD_VALIDA = "Se debe ingresar una cantidad valida";
     private static final String SE_DEBE_INGRESAR_VALOR_VALIDO = "Se debe ingresar un valor valido";
 
@@ -24,7 +22,7 @@ public class DetallePedido {
     private String observacion;
     private LocalDateTime fechaCreacion;
 
-    public DetallePedido(Long id, Long idPedido, Long idProducto, Integer cantidad,  String observacion, LocalDateTime fechaCreacion) {
+    public DetallePedido(Long id, Long idPedido, Long idProducto, Integer cantidad, String observacion, LocalDateTime fechaCreacion) {
 
         validarObligatorio(idProducto, SE_DEBE_SELECCIONAR_UN_PRODUCTO);
         validarObligatorio(cantidad, SE_DEBE_INGRESAR_CANTIDAD);
@@ -38,11 +36,11 @@ public class DetallePedido {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public void asignarIdPedido(Long idPedido){
+    public void asignarIdPedido(Long idPedido) {
         this.idPedido = idPedido;
     }
 
-    public void asignarValorUnidad(Double valorUnidad){
+    public void asignarValorUnidad(Double valorUnidad) {
         validarPositivo(valorUnidad, SE_DEBE_INGRESAR_VALOR_VALIDO);
         this.valorUnidad = valorUnidad;
     }

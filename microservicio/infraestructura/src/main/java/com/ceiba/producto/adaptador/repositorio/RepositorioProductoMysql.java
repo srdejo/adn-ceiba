@@ -38,31 +38,28 @@ public class RepositorioProductoMysql implements RepositorioProducto {
 
     @Override
     public void eliminar(Long id) {
-        MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("id", id);
-
-        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
+        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, crearParametro(id));
     }
 
     @Override
     public boolean existe(Long id) {
-        MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("id", id);
-
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, crearParametro(id), Boolean.class);
     }
 
     @Override
     public Double obtenerValor(Long id) {
-        MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("id", id);
-
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlValor, paramSource, Double.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlValor, crearParametro(id), Double.class);
     }
 
     @Override
     public void actualizar(Producto producto) {
         this.customNamedParameterJdbcTemplate.actualizar(producto, sqlActualizar);
+    }
+
+    private MapSqlParameterSource crearParametro(Long id){
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("id", id);
+        return paramSource;
     }
 
 }

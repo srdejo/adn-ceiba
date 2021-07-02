@@ -1,12 +1,10 @@
 package com.ceiba.pedido.modelo.entidad;
 
-import com.ceiba.detalle_pedido.modelo.entidad.DetallePedido;
 import com.ceiba.pedido.modelo.enums.EstadoPedido;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.List;
 
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
@@ -32,11 +30,11 @@ public class Pedido {
         this.valorDomicilio = valorDomicilio;
     }
 
-    public void asignarValorDomicilio(Double valorDomicilio){
+    public void asignarValorDomicilio(Double valorDomicilio) {
         this.valorDomicilio = valorDomicilio;
     }
 
-    public void asignarEstadoPedido(EstadoPedido estadoPedido){
+    public void asignarEstadoPedido(EstadoPedido estadoPedido) {
         this.estadoPedido = estadoPedido.toString();
     }
 }

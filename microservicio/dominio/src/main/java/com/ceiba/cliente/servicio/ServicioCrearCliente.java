@@ -3,8 +3,6 @@ package com.ceiba.cliente.servicio;
 import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
 
-import java.util.Objects;
-
 
 public class ServicioCrearCliente {
 

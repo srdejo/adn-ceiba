@@ -4,11 +4,9 @@ import com.ceiba.detalle_pedido.modelo.entidad.DetallePedido;
 import com.ceiba.detalle_pedido.puerto.repositorio.RepositorioDetallePedido;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.horario.puerto.repositorio.RepositorioHorario;
-import com.ceiba.oferta.modelo.dto.DtoOferta;
 import com.ceiba.oferta.puerto.dao.DaoOferta;
 import com.ceiba.producto.puerto.repositorio.RepositorioProducto;
 
-import java.util.List;
 import java.util.Objects;
 
 
@@ -51,7 +49,7 @@ public class ServicioCrearDetallePedido {
 
     private Double obtenerValor(Long idProducto) {
         Double valor = this.daoOferta.consultarValorEnOferta(idProducto);
-        if(Objects.isNull(valor)){
+        if (Objects.isNull(valor)) {
             valor = this.repositorioProducto.obtenerValor(idProducto);
         }
         return valor;

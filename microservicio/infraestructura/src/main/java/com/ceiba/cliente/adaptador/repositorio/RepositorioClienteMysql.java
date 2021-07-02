@@ -49,18 +49,12 @@ public class RepositorioClienteMysql implements RepositorioCliente {
 
     @Override
     public boolean existe(String celular) {
-        MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("celular", celular);
-
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, mapearCelular(celular), Boolean.class);
     }
 
     @Override
     public Long obtenerId(String celular) {
-        MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("celular", celular);
-
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlObtener, paramSource, Long.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlObtener, mapearCelular(celular), Long.class);
     }
 
     @Override
@@ -76,4 +70,9 @@ public class RepositorioClienteMysql implements RepositorioCliente {
         this.customNamedParameterJdbcTemplate.actualizar(cliente, sqlActualizar);
     }
 
+    private MapSqlParameterSource mapearCelular(String celular){
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("celular", celular);
+        return paramSource;
+    }
 }

@@ -26,7 +26,6 @@ import com.ceiba.pedido.servicio.ServicioActualizarPedido;
 import com.ceiba.pedido.servicio.ServicioConsultarPedido;
 import com.ceiba.pedido.servicio.ServicioCrearPedido;
 import com.ceiba.pedido.servicio.ServicioEliminarPedido;
-import com.ceiba.producto.puerto.dao.DaoProducto;
 import com.ceiba.producto.puerto.repositorio.RepositorioProducto;
 import com.ceiba.producto.servicio.ServicioActualizarProducto;
 import com.ceiba.producto.servicio.ServicioCrearProducto;
