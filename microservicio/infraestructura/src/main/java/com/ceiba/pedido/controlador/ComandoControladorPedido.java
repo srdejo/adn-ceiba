@@ -1,8 +1,6 @@
 package com.ceiba.pedido.controlador;
 
 import com.ceiba.ComandoRespuesta;
-import com.ceiba.pedido.modelo.dto.DtoPedido;
-import com.ceiba.pedido.modelo.entidad.Pedido;
 import com.ceiba.pedido.comando.ComandoPedido;
 import com.ceiba.pedido.comando.manejador.ManejadorActualizarPedido;
 import com.ceiba.pedido.comando.manejador.ManejadorCrearPedido;
