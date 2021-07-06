@@ -38,7 +38,7 @@ public class DaoOfertaMysql implements DaoOferta {
         paramSource.addValue("hora_actual", fechaHoraActual.toLocalTime());
         paramSource.addValue("fecha_actual", fechaHoraActual.toLocalDate());
         List<DtoOferta> dtoOfertas = this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlConsultarOferta, paramSource, new MapeoOferta());
-        if (dtoOfertas.size() == 0) {
+        if (dtoOfertas.isEmpty()) {
             return null;
         }
         return dtoOfertas.get(0).getValor();
