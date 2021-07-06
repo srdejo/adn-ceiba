@@ -1,25 +1,15 @@
 package com.ceiba.detalle_pedido.controlador;
 
 import com.ceiba.ApplicationMock;
-import com.ceiba.detalle_pedido.consulta.ManejadorListarDetallePedidos;
-import com.ceiba.detalle_pedido.modelo.dto.DtoDetallePedido;
-import com.ceiba.detalle_pedido.testdatabuilder.DtoDetallePedidoTestDataBuilder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultMatcher;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

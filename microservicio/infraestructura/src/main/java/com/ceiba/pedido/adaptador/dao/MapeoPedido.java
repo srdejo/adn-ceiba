@@ -1,5 +1,6 @@
 package com.ceiba.pedido.adaptador.dao;
 
+import com.ceiba.cliente.modelo.dto.DtoCliente;
 import com.ceiba.infraestructura.jdbc.MapperResult;
 import com.ceiba.pedido.modelo.dto.DtoPedido;
 import com.ceiba.pedido.modelo.enums.EstadoPedido;
@@ -21,8 +22,12 @@ public class MapeoPedido implements RowMapper<DtoPedido>, MapperResult {
         LocalTime hora = extraerLocalTime(resultSet, "hora");
         LocalDateTime fecha = extraerLocalDateTime(resultSet, "fecha_creacion");
         Double valorDomicilio = resultSet.getDouble("valor_domicilio");
+        String celular = resultSet.getString("celular");
+        String nonbre = resultSet.getString("nombre");
+        String direccion = resultSet.getString("direccion");
 
-        return new DtoPedido(id, idCliente, hora, estadoPedido, valorDomicilio, null, fecha);
+        return new DtoPedido(id, hora, estadoPedido, valorDomicilio, null, fecha
+                , new DtoCliente(idCliente, celular, nonbre, direccion));
     }
 
 }

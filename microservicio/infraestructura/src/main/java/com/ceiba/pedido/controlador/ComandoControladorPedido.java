@@ -32,7 +32,7 @@ public class ComandoControladorPedido {
 
     @PostMapping
     @ApiOperation("Crear Pedido")
-    public ComandoRespuesta<DtoPedido> crear(@RequestBody ComandoPedido comandoPedido) {
+    public ComandoRespuesta<Long> crear(@RequestBody ComandoPedido comandoPedido) {
         return manejadorCrearPedido.ejecutar(comandoPedido);
     }
 

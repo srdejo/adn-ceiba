@@ -21,11 +21,11 @@ public class ServicioConsultarPedido {
         DtoPedido dtoPedido = daoPedido.buscar(idPedido);
         List<DtoDetallePedido> dtoDetallePedidos = daoDetallePedido.listar(idPedido);
         return new DtoPedido(dtoPedido.getId(),
-                dtoPedido.getIdCliente(),
                 dtoPedido.getHora(),
                 dtoPedido.getEstadoPedido(),
                 dtoPedido.getValorDomicilio(),
                 dtoDetallePedidos,
-                dtoPedido.getFechaCreacion());
+                dtoPedido.getFechaCreacion(),
+                dtoPedido.getDtoCliente());
     }
 }

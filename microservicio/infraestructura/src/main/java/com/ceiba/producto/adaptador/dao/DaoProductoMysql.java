@@ -31,7 +31,6 @@ public class DaoProductoMysql implements DaoProducto {
 
     @Override
     public List<DtoProducto> listar(Long idComercio) {
-        LocalDateTime fechaHoraActual = LocalDateTime.now();
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("idComercio", idComercio);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar, paramSource, new MapeoProducto());

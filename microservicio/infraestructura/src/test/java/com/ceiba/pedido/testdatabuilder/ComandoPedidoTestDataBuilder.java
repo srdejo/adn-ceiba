@@ -5,7 +5,6 @@ import com.ceiba.cliente.servicio.testdatabuilder.ComandoClienteTestDataBuilder;
 import com.ceiba.detalle_pedido.comando.ComandoDetallePedido;
 import com.ceiba.detalle_pedido.testdatabuilder.ComandoDetallePedidoTestDataBuilder;
 import com.ceiba.pedido.comando.ComandoPedido;
-import com.ceiba.pedido.modelo.enums.EstadoPedido;
 
 import java.util.ArrayList;
 import java.util.List;

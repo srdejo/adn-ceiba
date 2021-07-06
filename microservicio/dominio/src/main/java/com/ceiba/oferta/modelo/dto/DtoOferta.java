@@ -4,7 +4,6 @@ import com.ceiba.producto.modelo.entidad.Producto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;

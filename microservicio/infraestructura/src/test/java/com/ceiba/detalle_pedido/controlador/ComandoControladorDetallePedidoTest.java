@@ -10,7 +10,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.jupiter.api.Order;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
@@ -58,7 +57,7 @@ public class ComandoControladorDetallePedidoTest {
         // arrange
         ComandoHorario horario = new ComandoHorarioTestDataBuilder().horaFinalMayor().build();
         comandoControladorHorario.crear(horario);
-        
+
         Long id = Long.valueOf(1);
         ComandoDetallePedido detallePedido = new ComandoDetallePedidoTestDataBuilder()
                 .conIdPedido(id)

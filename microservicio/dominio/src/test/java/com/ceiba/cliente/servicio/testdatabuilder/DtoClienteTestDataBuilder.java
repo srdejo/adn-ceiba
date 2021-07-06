@@ -29,6 +29,6 @@ public class DtoClienteTestDataBuilder {
     }
 
     public DtoCliente build() {
-        return new DtoCliente(id, celular, nombre, direccion, fechaCreacion);
+        return new DtoCliente(id, celular, nombre, direccion);
     }
 }

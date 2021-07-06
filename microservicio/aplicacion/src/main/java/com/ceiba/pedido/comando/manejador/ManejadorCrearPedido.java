@@ -11,45 +11,40 @@ import com.ceiba.detalle_pedido.servicio.ServicioCrearDetallePedido;
 import com.ceiba.manejador.ManejadorComandoRespuesta;
 import com.ceiba.pedido.comando.ComandoPedido;
 import com.ceiba.pedido.comando.fabrica.FabricaPedido;
-import com.ceiba.pedido.modelo.dto.DtoPedido;
 import com.ceiba.pedido.modelo.entidad.Pedido;
 import com.ceiba.pedido.modelo.enums.EstadoPedido;
-import com.ceiba.pedido.servicio.ServicioConsultarPedido;
 import com.ceiba.pedido.servicio.ServicioCrearPedido;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-public class ManejadorCrearPedido implements ManejadorComandoRespuesta<ComandoPedido, ComandoRespuesta<DtoPedido>> {
+public class ManejadorCrearPedido implements ManejadorComandoRespuesta<ComandoPedido, ComandoRespuesta<Long>> {
 
     private final FabricaPedido fabricaPedido;
     private final FabricaDetallePedido fabricaDetallePedido;
     private final FabricaCliente fabricaCliente;
     private final ServicioCrearPedido servicioCrearPedido;
     private final ServicioCrearDetallePedido servicioCrearDetallePedido;
-    private final ServicioConsultarPedido servicioConsultarPedido;
     private final ServicioCrearCliente servicioCrearCliente;
 
     public ManejadorCrearPedido(FabricaPedido fabricaPedido, FabricaDetallePedido fabricaDetallePedido,
                                 FabricaCliente fabricaCliente, ServicioCrearPedido servicioCrearPedido,
                                 ServicioCrearDetallePedido servicioCrearDetallePedido,
-                                ServicioConsultarPedido servicioConsultarPedido,
                                 ServicioCrearCliente servicioCrearCliente) {
         this.fabricaPedido = fabricaPedido;
         this.fabricaDetallePedido = fabricaDetallePedido;
         this.fabricaCliente = fabricaCliente;
         this.servicioCrearPedido = servicioCrearPedido;
         this.servicioCrearDetallePedido = servicioCrearDetallePedido;
-        this.servicioConsultarPedido = servicioConsultarPedido;
         this.servicioCrearCliente = servicioCrearCliente;
     }
 
-    public ComandoRespuesta<DtoPedido> ejecutar(ComandoPedido comandoPedido) {
+    public ComandoRespuesta<Long> ejecutar(ComandoPedido comandoPedido) {
         comandoPedido.setCliente(guardarCliente(comandoPedido.getCliente()));
         Long idPedido = guardarPedido(comandoPedido);
         guardarDetallePedido(comandoPedido.getDetallePedidos(), idPedido);
-        return new ComandoRespuesta<>(this.servicioConsultarPedido.ejecutar(idPedido));
+        return new ComandoRespuesta<>(idPedido);
     }
 
     private ComandoCliente guardarCliente(ComandoCliente comandoCliente) {
